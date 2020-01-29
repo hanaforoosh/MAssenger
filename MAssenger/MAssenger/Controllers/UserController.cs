@@ -10,7 +10,6 @@ namespace MAssenger.Controllers
 {
     public class UserController : ApiController
     {
-        private List<User> users
 
         [HttpGet]
         public IHttpActionResult Get([FromUri] Request req)
