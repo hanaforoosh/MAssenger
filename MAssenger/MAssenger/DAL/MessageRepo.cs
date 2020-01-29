@@ -6,34 +6,34 @@ using System.Web;
 
 namespace MAssenger.DAL
 {
-    public class MessageRepo : IRepo<Message>
+    public class MessageRepo : Repo<Message>
     {
-        public bool Create(Message entity)
+        public override bool Create(Message entity)
         {
             throw new NotImplementedException();
         }
 
-        public bool Delete(Message entity)
+        public override bool Delete(Message entity)
         {
             throw new NotImplementedException();
         }
 
-        public bool Delete(ulong id)
+        public override bool Delete(ulong id)
         {
             throw new NotImplementedException();
         }
 
-        public Message Read(ulong id)
+        public override Message Read(ulong id)
         {
             throw new NotImplementedException();
         }
 
-        public ICollection<Message> ReadAll()
+        public override ICollection<Message> ReadAll()
         {
             throw new NotImplementedException();
         }
 
-        public bool Update(Message entity)
+        public override bool Update(Message entity)
         {
             throw new NotImplementedException();
         }

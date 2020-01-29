@@ -12,7 +12,7 @@ namespace MAssenger.Controllers
 {
     public class UserController : ApiController
     {
-        private readonly UserRepo  userRepo = new UserRepo();
+        private readonly Repo<User>  userRepo = new UserRepo();
 
         [HttpGet]
         public IHttpActionResult Get(UInt64 id)

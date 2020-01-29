@@ -6,7 +6,7 @@ using System.Web;
 
 namespace MAssenger.DAL
 {
-    public class SessionRepo : IRepo<Session>
+    public class SessionRepo : Repo<Session>
     {
         public static List<Session> sessions = new List<Session>()
         {
@@ -15,36 +15,36 @@ namespace MAssenger.DAL
             new Session(7 , new User(3 , "e" , "ee" , "09160000003") , DateTime.Now , LoginType.google , "1.1.1.3"),
             new Session(6 , new User(4 , "r" , "rr" , "09160000004") , DateTime.Now , LoginType.google , "1.1.1.4")
         };
-        public bool Create(Session entity)
+        public override bool Create(Session entity)
         {
             sessions.Add(entity);
             return true;
         }
 
-        public bool Delete(Session entity)
+        public override bool Delete(Session entity)
         {
             sessions.Remove(entity);
             return true;
         }
 
-        public bool Delete(ulong id)
+        public override bool Delete(ulong id)
         {
             sessions.Remove(sessions.Find(a => a.Id == id));
             return true;
         }
 
-        public Session Read(UInt64 id)
+        public override Session Read(UInt64 id)
         {
             Session _session = sessions.Find(a => a.Id == id);
             return _session;
         }
 
-        public ICollection<Session> ReadAll()
+        public override ICollection<Session> ReadAll()
         {
             return sessions;
         }
 
-        public bool Update(Session entity)
+        public override bool Update(Session entity)
         {
             Session _session = sessions.Find(a => a.Id == entity.Id);
             if (sessions.Contains(_session))
