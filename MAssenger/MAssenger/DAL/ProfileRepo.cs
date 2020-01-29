@@ -24,7 +24,7 @@ namespace MAssenger.DAL
             throw new NotImplementedException();
         }
 
-        public Collection<T> ReadAll()
+        public ICollection<T> ReadAll()
         {
             throw new NotImplementedException();
         }
