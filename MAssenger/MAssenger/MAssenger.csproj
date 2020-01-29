@@ -86,9 +86,11 @@
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\MAAuth.cs" />
+    <Compile Include="Controllers\MessageController.cs" />
     <Compile Include="Controllers\ProfilerController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="DAL\IRepo.cs" />
+    <Compile Include="DAL\MessageRepo.cs" />
     <Compile Include="DAL\ProfileRepo.cs" />
     <Compile Include="DAL\SessionRepo.cs" />
     <Compile Include="DAL\UserRepo.cs" />
@@ -97,6 +99,7 @@
     </Compile>
     <Compile Include="Models\AModel.cs" />
     <Compile Include="Models\LoginType.cs" />
+    <Compile Include="Models\Message.cs" />
     <Compile Include="Models\Profile.cs" />
     <Compile Include="Models\Session.cs" />
     <Compile Include="Models\User.cs" />
