@@ -85,7 +85,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="Controllers\AuthenticationController.cs" />
+    <Compile Include="Controllers\Authentication.cs" />
     <Compile Include="Controllers\ProfilerController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="DAL\IRepo.cs" />
