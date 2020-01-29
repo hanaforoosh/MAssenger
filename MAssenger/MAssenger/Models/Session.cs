@@ -17,17 +17,10 @@ namespace MAssenger.Models
         public Session(string sessionId , User user ,DateTime exp , LoginType loginType , String macAddress)
         {
             SessionId = sessionId;
-            this.user = user;
+            User = user;
             Exp = exp;
-            this.loginType = loginType;
-            MacAddress = macAddress;
+            this.LoginType = loginType;
+            this.MacAddesse = macAddress;
         }
-
-        public string SessionId { get; set; }
-        public User user{ get; set; }
-        public DateTime Exp { get; set; }
-        public LoginType loginType { get; set; }
-        public string MacAddress { get; set; }
-
     }
 }
