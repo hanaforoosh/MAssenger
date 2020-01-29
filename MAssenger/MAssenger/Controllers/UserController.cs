@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -10,9 +11,17 @@ namespace MAssenger.Controllers
     public class UserController : ApiController
     {
 
-        public string Get()
-        {
-            return "Hello!";
+        [HttpGet]
+        public IHttpActionResult Get([FromUri] Request req)
+        {  
+            return Ok(req.GetContent<Test>());
         }
+
+    }
+
+    public class Test
+    {
+        private int x;
+        public string Mystring { get; set; }
     }
 }
