@@ -5,7 +5,11 @@ using System.Web;
 
 namespace MAssenger.Models
 {
-    public class LoginType
+    public enum LoginType
     {
+        google = 0,
+        facebook = 1,
+        MAssenger = 2
+
     }
 }

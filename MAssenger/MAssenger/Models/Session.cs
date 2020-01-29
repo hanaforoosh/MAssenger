@@ -7,14 +7,14 @@ namespace MAssenger.Models
 {
     public class Session : AModel
     {
-        public string SessionId { get; set; }
+        public int SessionId { get; set; }
         public User User { get; set; }
         public DateTime Exp { get; set; }
         public LoginType LoginType { get; set; }
         public string MacAddesse { get; set; }
         public Session() { }
 
-        public Session(string sessionId, User user, DateTime exp, LoginType loginType, String macAddress)
+        public Session(int sessionId, User user, DateTime exp, LoginType loginType, String macAddress)
         {
             SessionId = sessionId;
             User = user;
