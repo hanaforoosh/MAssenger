@@ -14,7 +14,7 @@ namespace MAssenger.Models
         public string MacAddesse { get; set; }
         public Session() { }
 
-        public Session(string sessionId , User user ,DateTime exp , LoginType loginType , String macAddress)
+        public Session(string sessionId, User user, DateTime exp, LoginType loginType, String macAddress)
         {
             SessionId = sessionId;
             User = user;
@@ -22,5 +22,16 @@ namespace MAssenger.Models
             this.LoginType = loginType;
             this.MacAddesse = macAddress;
         }
+
+        public bool Equals(Session other)
+        {
+            return this.Id == other.Id &&
+                   this.User == other.User &&
+                   this.SessionId == other.SessionId &&
+                   this.Exp == other.Exp &&
+                   this.LoginType == other.LoginType &&
+                   this.MacAddesse == other.MacAddesse;
+        }
+
     }
 }
