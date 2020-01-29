@@ -7,6 +7,8 @@ namespace MAssenger.Models
 {
     public class User : AModel
     {
+        public User() { }
+
         public User(UInt64 id , string username , string password , string phonenumber)
         {
             Id = id;

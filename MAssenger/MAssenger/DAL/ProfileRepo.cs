@@ -9,6 +9,14 @@ namespace MAssenger.DAL
 {
     public class ProfileRepo<T> : IRepo<T> where T : Profile
     {
+        public List<Profile> users = new List<Profile>(){
+            new Profile("a", "aa" , "av1" , DateTime.Now , "bio1"),
+            new Profile("b", "bb" , "av2" , DateTime.Now , "bio2"),
+            new Profile("c", "cc" , "av3" , DateTime.Now , "bio3"),
+            new Profile("d", "dd" , "av4" , DateTime.Now , "bio4"),
+        };
+
+        
         public bool Create(T entity)
         {
             throw new NotImplementedException();

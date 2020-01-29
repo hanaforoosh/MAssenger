@@ -7,11 +7,22 @@ namespace MAssenger.Models
 {
     public class Session : AModel
     {
-        private string sessionId;
-        private User user;
-        private DateTime exp;
-        private LoginType loginType;
-        private string MacAddesse;
+        public Session() { }
+
+        public Session(string sessionId , User user ,DateTime exp , LoginType loginType , String macAddress)
+        {
+            SessionId = sessionId;
+            this.user = user;
+            Exp = exp;
+            this.loginType = loginType;
+            MacAddress = macAddress;
+        }
+
+        public string SessionId { get; set; }
+        public User user{ get; set; }
+        public DateTime Exp { get; set; }
+        public LoginType loginType { get; set; }
+        public string MacAddress { get; set; }
 
     }
 }
