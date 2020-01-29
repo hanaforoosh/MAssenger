@@ -29,6 +29,12 @@ namespace MAssenger.DAL
             return true;
         }
 
+        public bool Delete(UInt64 id)
+        {
+            profiles.Remove(profiles.Find(a => a.Id == id));
+            return true;
+        }
+
         public Profile Read(UInt64 id)
         {
             Profile _profile = profiles.Find(a => a.Id == id);

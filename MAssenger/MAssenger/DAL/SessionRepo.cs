@@ -27,6 +27,12 @@ namespace MAssenger.DAL
             return true;
         }
 
+        public bool Delete(ulong id)
+        {
+            sessions.Remove(sessions.Find(a => a.Id == id));
+            return true;
+        }
+
         public Session Read(UInt64 id)
         {
             Session _session = sessions.Find(a => a.Id == id);

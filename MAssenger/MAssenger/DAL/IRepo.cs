@@ -14,5 +14,9 @@ namespace MAssenger.DAL
         ICollection<T> ReadAll();
         bool Update(T entity);
         bool Delete(T entity);
+        bool Delete(UInt64 id);
+
+
+
     }
 }

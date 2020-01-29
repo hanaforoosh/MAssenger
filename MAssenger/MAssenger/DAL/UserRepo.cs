@@ -29,6 +29,11 @@ namespace MAssenger.DAL
             users.Remove(entity);
             return true;
         }
+        public bool Delete(UInt64 id)
+        {
+            users.Remove(users.Find(a => a.Id == id));
+            return true;
+        }
 
         public User Read(UInt64 id)
         {
