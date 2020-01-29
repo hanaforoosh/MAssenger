@@ -7,7 +7,7 @@ using System.Web;
 
 namespace MAssenger.DAL
 {
-    public class ProfileRepo<T> : IRepo<T> where T : Profile
+    public class ProfileRepo : IRepo<Profile>
     {
         public List<Profile> profiles = new List<Profile>(){
             new Profile("a", "aa" , "av1" , DateTime.Now , "bio1"),
@@ -16,31 +16,40 @@ namespace MAssenger.DAL
             new Profile("d", "dd" , "av4" , DateTime.Now , "bio4"),
         };
 
-        
-        public bool Create(T entity)
+
+        public bool Create(Profile entity)
         {
             profiles.Add(entity);
             return true;
         }
 
-        public bool Delete(T entity)
+        public bool Delete(Profile entity)
         {
-            throw new NotImplementedException();
+            profiles.Remove(entity);
+            return true;
         }
 
-        public T Read(UInt64 id)
+        public Profile Read(UInt64 id)
         {
-            throw new NotImplementedException();
+            Profile _profile = profiles.Find(a => a.Id == id);
+            return _profile;
         }
 
-        public ICollection<T> ReadAll()
+        public ICollection<Profile> ReadAll()
         {
-            throw new NotImplementedException();
+            return profiles;
         }
 
-        public bool Update(T entity)
+        public bool Update(Profile entity)
         {
-            throw new NotImplementedException();
+            Profile _profile = profiles.Find(a => a.Id == entity.Id);
+            if (profiles.Contains(_profile))
+            {
+                profiles.Remove(_profile);
+            }
+            profiles.Add(entity);
+
+            return true;
         }
     }
 }
