@@ -87,7 +87,6 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AuthenticationController.cs" />
     <Compile Include="Controllers\ProfilerController.cs" />
-    <Compile Include="Controllers\Request.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="DAL\IRepo.cs" />
     <Compile Include="DAL\ProfileRepo.cs" />
