@@ -14,8 +14,9 @@ namespace MAssenger.Models
         public string Bio { get; set; }
         public Profile() { }
 
-        public Profile(string firstName, string lastName, string avatar, DateTime lastSeen, string bio)
+        public Profile(UInt64 id , string firstName, string lastName, string avatar, DateTime lastSeen, string bio)
         {
+            Id = id;
             FirstName = firstName;
             LastName = lastName;
             Avatar = avatar;
