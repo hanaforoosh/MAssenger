@@ -14,6 +14,7 @@ namespace MAssenger.Controllers
         [HttpGet]
         public IHttpActionResult Get([FromUri] Request req)
         {  
+
             return Ok(req.GetContent<Test>());
         }
 
