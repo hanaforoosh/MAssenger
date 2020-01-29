@@ -1,53 +1,58 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ClassDiagram MajorVersion="1" MinorVersion="1">
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
   <Class Name="MAssenger.WebApiConfig">
-    <Position X="0.5" Y="0.5" Width="1.5" />
+    <Position X="9.75" Y="2.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAA=</HashCode>
       <FileName>App_Start\WebApiConfig.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="MAssenger.WebApiApplication">
-    <Position X="3.5" Y="2.25" Width="1.5" />
+    <Position X="7.25" Y="3" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAA=</HashCode>
       <FileName>Global.asax.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="MAssenger.Controllers.UserController">
-    <Position X="12" Y="1.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAYAAAAAAAAAAABAAACAAAAAAAEAAAAAAgAAAAAAAAA=</HashCode>
-      <FileName>Controllers\UserController.cs</FileName>
-    </TypeIdentifier>
-    <ShowAsAssociation>
-      <Field Name="userRepo" />
-    </ShowAsAssociation>
-  </Class>
   <Class Name="MAssenger.Controllers.AuthenticationController">
-    <Position X="6" Y="0.5" Width="1.5" />
+    <Position X="7.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Controllers\AuthenticationController.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="MAssenger.Controllers.ProfilerController" Collapsed="true">
-    <Position X="11" Y="0.5" Width="1.5" />
+  <Class Name="MAssenger.Controllers.ProfilerController">
+    <Position X="9.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Controllers\ProfilerController.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="MAssenger.DAL.ProfileRepo&lt;T&gt;" BaseTypeListCollapsed="true">
-    <Position X="7.75" Y="1" Width="1.5" />
+  <Class Name="MAssenger.Controllers.UserController">
+    <Position X="4" Y="5.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAQAAAAAAAAAAAAAEAAAAAAgAAEAAEAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAYAAAAAAAAAAABAAACAAAAAAAEAAAAAAgAAAAAAAAA=</HashCode>
+      <FileName>Controllers\UserController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MAssenger.DAL.ProfileRepo&lt;T&gt;" BaseTypeListCollapsed="true">
+    <Position X="9" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAAAEAIAAAAgAAEAAEAAAAAAAAAAAAA=</HashCode>
       <FileName>DAL\ProfileRepo.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
+  <Class Name="MAssenger.DAL.SessionRepo" BaseTypeListCollapsed="true">
+    <Position X="7.25" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAIAAAEAAAAAAgAAEAAEAAAAAAAAAAAAA=</HashCode>
+      <FileName>DAL\SessionRepo.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
   <Class Name="MAssenger.DAL.UserRepo" BaseTypeListCollapsed="true">
-    <Position X="9.5" Y="1.5" Width="1.5" />
+    <Position X="10.75" Y="7.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>IAQAAAAAAAAAAAAAEAAAAAAgAAEAAEAAAAAAAAAAAAA=</HashCode>
       <FileName>DAL\UserRepo.cs</FileName>
@@ -55,47 +60,50 @@
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
   <Class Name="MAssenger.Models.AModel">
-    <Position X="3.5" Y="0.5" Width="1.5" />
+    <Position X="2.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Models\AModel.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="MAssenger.Models.LoginType" Collapsed="true">
-    <Position X="9.25" Y="0.5" Width="1.5" />
+  <Class Name="MAssenger.Models.Profile">
+    <Position X="5" Y="2.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Models\LoginType.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="MAssenger.Models.Profile" Collapsed="true">
-    <Position X="5.5" Y="2.25" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAEAAAAAAAAAACAQAAAAAAAAAAAAAAAAgAAAAAAg=</HashCode>
+      <HashCode>AAAAAEAAAAAAAAAAiAQAAAAAAAAAAAAAAAAgAAAAAAg=</HashCode>
       <FileName>Models\Profile.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="MAssenger.Models.Session" Collapsed="true">
-    <Position X="1.25" Y="2.25" Width="1.5" />
+  <Class Name="MAssenger.Models.Session">
+    <Position X="0.5" Y="2.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAADAAAAAAAAAAAAAAAAIAAIAAAAAAAAAAAAAAAAAAE=</HashCode>
+      <HashCode>AAADAAAAAAAAAAAAgAAAIAAIAAAAAAAAAAAAAAAAAAE=</HashCode>
       <FileName>Models\Session.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="LoginType" />
+    </ShowAsAssociation>
   </Class>
-  <Class Name="MAssenger.Models.User" Collapsed="true">
-    <Position X="2.25" Y="4" Width="1.5" />
+  <Class Name="MAssenger.Models.User">
+    <Position X="2.75" Y="2.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAgQAAQAAAAAAAAAACAAAAAAAAAAA=</HashCode>
       <FileName>Models\User.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
-  <Interface Name="MAssenger.DAL.IRepo&lt;T&gt;" Collapsed="true">
-    <Position X="7" Y="3.5" Width="1.5" />
+  <Interface Name="MAssenger.DAL.IRepo&lt;T&gt;">
+    <Position X="9" Y="4.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAQAAAAAAAAAAAAAEAAAAAAgAAEAAEAAAAAAAAAAAAA=</HashCode>
       <FileName>DAL\IRepo.cs</FileName>
     </TypeIdentifier>
   </Interface>
+  <Enum Name="MAssenger.Models.LoginType">
+    <Position X="1.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAABAAAAAAAIAAAAAAAAAAAAQAA=</HashCode>
+      <FileName>Models\LoginType.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>
