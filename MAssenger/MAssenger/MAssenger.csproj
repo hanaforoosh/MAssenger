@@ -90,6 +90,7 @@
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="DAL\IRepo.cs" />
     <Compile Include="DAL\ProfileRepo.cs" />
+    <Compile Include="DAL\SessionRepo.cs" />
     <Compile Include="DAL\UserRepo.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
