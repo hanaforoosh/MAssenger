@@ -108,6 +108,7 @@
     <Compile Include="Controllers\MessageController.cs" />
     <Compile Include="Controllers\ProfilerController.cs" />
     <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="Models\DoubleChat.cs" />
     <Compile Include="Group.cs" />
     <Compile Include="Models\Account.cs" />
     <Compile Include="Models\Bot.cs" />
@@ -135,6 +136,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="ClassDiagram1.cd" />
+    <Content Include="ClassDiagram2.cd" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
