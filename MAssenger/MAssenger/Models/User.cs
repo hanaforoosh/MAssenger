@@ -5,10 +5,10 @@ using System.Web;
 
 namespace MAssenger.Models
 {
-    public class User : AModel,IEquatable<User>
+    public class User : Account, IEquatable<User>
     {
-        public string Username { get; set; }
-        public string Password { get; set; }
+        private ICollection<Conversation> Conversations = new List<Conversation>();
+
         public string PhoneNumber { get; set; }
         public User()
         {
@@ -21,12 +21,28 @@ namespace MAssenger.Models
             Username = username;
             PhoneNumber = phonenumber;
         }
+
+        public bool AddConversation(Conversation c)
+        {
+            Conversations.Add(c);
+            return true;
+        }
+
+        public bool AddMessageToInbox(Message c)
+        {
+            Inbox.Add(c);
+            return true;
+        }
+        public bool RemoveMessageFromInbox(Message c)
+        {
+            Inbox.Remove(c);
+            return true;
+        }
+
+
         public bool Equals(User other)
         {
-            return this.Id == other.Id &&
-                   this.Username == other.Username &&
-                   this.Password == other.Password &&
-                   this.PhoneNumber == other.PhoneNumber;
+            throw new NotImplementedException();
         }
     }
 }

@@ -10,6 +10,5 @@ namespace MAssenger.Models
         google = 0,
         facebook = 1,
         MAssenger = 2
-
     }
 }

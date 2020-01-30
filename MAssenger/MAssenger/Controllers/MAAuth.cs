@@ -8,15 +8,6 @@ using System.Web.Http;
 
 namespace MAssenger.Controllers
 {
-    public interface IAuthentication
-    {
-        Session Login(User user);
-        bool Logout(Session session);
-        bool Logout(UInt64 id);
-        bool IsValid(User user);
-        bool IsValid(Session session);
-    }
-
     public class MAAuth : IAuthentication
     {
         public Session Login(User user)
@@ -24,7 +15,7 @@ namespace MAssenger.Controllers
             Session session = new Session(1, user, DateTime.MaxValue, LoginType.MAssenger, "A0-51-0B-BB-B8-3C");
             SessionRepo sessionRepo = new SessionRepo();
             sessionRepo.Create(session);
-            return session; 
+            return session;
         }
         public bool Logout(Session session)
         {

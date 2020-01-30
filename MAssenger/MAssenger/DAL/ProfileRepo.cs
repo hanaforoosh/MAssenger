@@ -17,14 +17,14 @@ namespace MAssenger.DAL
         {
             DBContext = new DBMySQL();
             DBContext.WriteData("insert into `profile` (`user_id` , `firstname` , `lastname` , `avatar` , `lastseen` , `bio`) " +
-                $" values ( {entity.Id}  , '{entity.FirstName}','{entity.LastName}','{entity.Avatar}','{entity.LastSeen}','{entity.Bio}' )");
+                $" values ( {entity.Id}  , '{entity.FirstName}','{entity.LastName}','{entity.Avatar}','{entity.LastSeenStatus}','{entity.Bio}' )");
             return true;
         }
 
         public override bool Delete(Profile entity)
         {
             DBContext.WriteData($"delete from `profile` where `user_id` = {entity.Id}  and `firstname` = {entity.FirstName} and `lastname` = {entity.LastName} " +
-                $" and `avatar` = {entity.Avatar} and `lastseen` = {entity.LastSeen} and `bio` = {entity.Bio} ");
+                $" and `avatar` = {entity.Avatar} and `lastseen` = {entity.LastSeenStatus} and `bio` = {entity.Bio} ");
             return true;
         }
 
@@ -45,7 +45,8 @@ namespace MAssenger.DAL
                 _profile.Id = UInt64.Parse(dataRow["user_id"].ToString());
                 _profile.FirstName = dataRow["firstname"].ToString();
                 _profile.LastName = dataRow["lastname"].ToString();
-                _profile.Avatar = dataRow["avatar"].ToString();
+                _profile.Avatar = null;
+                _profile.LastSeenStatus = SeenStatus.Online;
                 _profile.LastSeen = DateTime.Parse(dataRow["username"].ToString());
                 _profile.Bio = dataRow["bio"].ToString();
 
@@ -66,7 +67,8 @@ namespace MAssenger.DAL
                     Id = UInt64.Parse(dataRow["user_id"].ToString()),
                     FirstName = dataRow["firstname"].ToString(),
                     LastName = dataRow["lastname"].ToString(),
-                    Avatar = dataRow["avatar"].ToString(),
+                    Avatar = null,
+                    LastSeenStatus = SeenStatus.Online,
                     LastSeen = DateTime.Parse(dataRow["lastseen"].ToString()),
                     Bio = dataRow["bio"].ToString()
                 };
@@ -86,7 +88,7 @@ namespace MAssenger.DAL
             else
             {
                 DBContext.WriteData($"update  `profile` set `firstname` = {entity.FirstName} and `lastname` = {entity.LastName} " +
-                    $" and `avatar` = {entity.Avatar} and `lastseen` = {entity.LastSeen} and `bio` = {entity.Bio}  where `user_id` = {entity.Id}  ");
+                    $" and `avatar` = {entity.Avatar} and `lastseen` = {entity.LastSeenStatus} and `bio` = {entity.Bio}  where `user_id` = {entity.Id}  ");
             }
 
             return true;

@@ -5,7 +5,7 @@ using System.Web;
 
 namespace MAssenger.Models
 {
-    public class Session : AModel
+    public class Session : AModel, IEquatable<Session>
     {
         public int SessionId { get; set; }
         public User User { get; set; }
@@ -23,7 +23,7 @@ namespace MAssenger.Models
             this.MacAddesse = macAddress;
         }
 
-        public bool Equals(Session other)
+        public bool Receiver(Session other)
         {
             return this.Id == other.Id &&
                    this.User == other.User &&
@@ -33,5 +33,9 @@ namespace MAssenger.Models
                    this.MacAddesse == other.MacAddesse;
         }
 
+        public bool Equals(Session other)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
