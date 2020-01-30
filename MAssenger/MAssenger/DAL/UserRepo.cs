@@ -11,9 +11,14 @@ namespace MAssenger.DAL
 
         public override User Create(User entity)
         {
-            entity.Id = DBContext.WriteData("insert into user (`username` , `phonenumber` , `password`) VALUES  ( '" + entity.Username +
-                "' , '" + entity.PhoneNumber + "' , '" + entity.Password + "')  ");
-            
+            UInt64 amodelId = DBContext.WriteData(" insert into amodel (`type`) values ('user') ");
+
+            DBContext.WriteData($"insert into user (`phonenumber` , `amodel_id` ) values ( '123' , { amodelId } )");
+
+            DBContext.WriteData("insert into account ( `amodel_id` , `avatar` , `bio` , `firstname` , `lastname` , `lastseen` , `username` , `password`)"+
+                $" values ( {amodelId} ,{entity.Avatar},{entity.Bio},{entity.FirstName} ,{entity.LastName},{entity.LastSeen},{entity.Credential.Username},{entity.Credential.Password})");
+
+            entity.Id = amodelId;
             return entity;
         }
 

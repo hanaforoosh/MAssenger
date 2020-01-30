@@ -31,9 +31,10 @@ namespace MAssenger.DAL
             conn.Open();
             MySqlCommand comm = conn.CreateCommand();
             comm.CommandText = query;
-            comm.ExecuteNonQuery();
-            conn.Close();
-            return 1;
+            //comm.ExecuteNonQuery();
+             comm.ExecuteScalar();
+            int id = Convert.ToInt32(comm.ExecuteScalar());
+            return UInt64.Parse(id.ToString());
         }
     }
 }
