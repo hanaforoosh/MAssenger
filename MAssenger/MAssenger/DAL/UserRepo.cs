@@ -7,10 +7,11 @@ namespace MAssenger.DAL
 {
     public class UserRepo : Repo<User>
     {
-        private IDBContext idb = new DBMySQL();
+        public UserRepo() : base(new DBMySQL()) { }
+
         public override bool Create(User entity)
         {
-            idb.WriteData("insert into user (`username` , `phonenumber` , `password`) VALUES  ( '" + entity.Username +
+            DBContext.WriteData("insert into user (`username` , `phonenumber` , `password`) VALUES  ( '" + entity.Username +
                 "' , '" + entity.PhoneNumber + "' , '" + entity.Password + "')  ");
 
             return true;
@@ -18,19 +19,19 @@ namespace MAssenger.DAL
 
         public override bool Delete(User entity)
         {
-            idb.WriteData("delete from user where `id` = " + entity.Id + " `username` = " + entity.Username
+            DBContext.WriteData("delete from user where `id` = " + entity.Id + " `username` = " + entity.Username
                 + " and `phonenumber` = " + entity.PhoneNumber + " and  `password` = " + entity.Password);
             return true;
         }
         public override bool Delete(UInt64 id)
         {
-            idb.WriteData("delete from user where `id` = " + id);
+            DBContext.WriteData("delete from user where `id` = " + id);
             return true;
         }
 
         public override User Read(UInt64 id)
         {
-            DataTable dataTable = idb.ReadData("select * from user where id = " + id);
+            DataTable dataTable = DBContext.ReadData("select * from user where id = " + id);
             User _users = new User();
             if (dataTable.Rows.Count > 0)
             {
@@ -48,14 +49,16 @@ namespace MAssenger.DAL
         {
             List<User> users = new List<User>();
 
-            DataTable dataTable = idb.ReadData("select * from user ");
+            DataTable dataTable = DBContext.ReadData("select * from user ");
             foreach (DataRow dataRow in dataTable.Rows)
             {
-                User _user = new User();
-                _user.Id = UInt64.Parse(dataRow["id"].ToString());
-                _user.Password = dataRow["password"].ToString();
-                _user.PhoneNumber = dataRow["phonenumber"].ToString();
-                _user.Username = dataRow["username"].ToString();
+                User _user = new User
+                {
+                    Id = UInt64.Parse(dataRow["id"].ToString()),
+                    Password = dataRow["password"].ToString(),
+                    PhoneNumber = dataRow["phonenumber"].ToString(),
+                    Username = dataRow["username"].ToString()
+                };
                 users.Add(_user);
             }
             return users;
@@ -70,7 +73,7 @@ namespace MAssenger.DAL
             }
             else
             {
-                idb.WriteData("update user set  `username` = '" + entity.Username
+                DBContext.WriteData("update user set  `username` = '" + entity.Username
                 + "' , `phonenumber` = '" + entity.PhoneNumber + "' ,  `password` = '" + entity.Password + "' where `id` = " + entity.Id );
             }
 

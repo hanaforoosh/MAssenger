@@ -8,6 +8,8 @@ namespace MAssenger.DAL
 {
     public class MessageRepo : Repo<Message>
     {
+        public MessageRepo() : base(new DBMySQL()) { }
+
         public override bool Create(Message entity)
         {
             throw new NotImplementedException();

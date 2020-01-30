@@ -8,6 +8,8 @@ namespace MAssenger.DAL
 {
     public class SessionRepo : Repo<Session>
     {
+        public SessionRepo() : base (new DBMySQL()) { }
+
         public static List<Session> sessions = new List<Session>()
         {
             new Session(9 , new User(1 , "q" , "qq" , "09160000001") , DateTime.Now , LoginType.google , "1.1.1.1"),

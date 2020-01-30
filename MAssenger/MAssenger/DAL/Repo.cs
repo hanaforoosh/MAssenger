@@ -17,5 +17,10 @@ namespace MAssenger.DAL
         public abstract bool Update(T entity);
         public abstract bool Delete(T entity);
         public abstract bool Delete(UInt64 id);
+
+        public Repo(IDBContext dBContext)
+        {
+            DBContext = dBContext;
+        }
     }
 }

@@ -10,39 +10,34 @@ namespace MAssenger.DAL
 {
     public class ProfileRepo : Repo<Profile>
     {
-        //public List<Profile> profiles = new List<Profile>(){
-        //    new Profile("a", "aa" , "av1" , DateTime.Now , "bio1"),
-        //    new Profile("b", "bb" , "av2" , DateTime.Now , "bio2"),
-        //    new Profile("c", "cc" , "av3" , DateTime.Now , "bio3"),
-        //    new Profile("d", "dd" , "av4" , DateTime.Now , "bio4"),
-        //};
+        public ProfileRepo() : base(new DBMySQL()) { }
 
-        private IDBContext idb = new DBMySQL();
 
         public override bool Create(Profile entity)
         {
-            idb.WriteData("insert into `profile` (`user_id` , `firstname` , `lastname` , `avatar` , `lastseen` , `bio`) " +
+            DBContext = new DBMySQL();
+            DBContext.WriteData("insert into `profile` (`user_id` , `firstname` , `lastname` , `avatar` , `lastseen` , `bio`) " +
                 $" values ( {entity.Id}  , '{entity.FirstName}','{entity.LastName}','{entity.Avatar}','{entity.LastSeen}','{entity.Bio}' )");
             return true;
         }
 
         public override bool Delete(Profile entity)
         {
-            idb.WriteData($"delete from `profile` where `user_id` = {entity.Id}  and `firstname` = {entity.FirstName} and `lastname` = {entity.LastName} " +
+            DBContext.WriteData($"delete from `profile` where `user_id` = {entity.Id}  and `firstname` = {entity.FirstName} and `lastname` = {entity.LastName} " +
                 $" and `avatar` = {entity.Avatar} and `lastseen` = {entity.LastSeen} and `bio` = {entity.Bio} ");
             return true;
         }
 
         public override bool Delete(UInt64 id)
         {
-            idb.WriteData($"delete from `profile` where `user_id` = {id} ");
+            DBContext.WriteData($"delete from `profile` where `user_id` = {id} ");
             return true;
         }
 
         public override Profile Read(UInt64 id)
         {
 
-            DataTable dataTable = idb.ReadData("select * from profile where user_id = " + id);
+            DataTable dataTable = DBContext.ReadData("select * from profile where user_id = " + id);
             Profile _profile = new Profile();
             if (dataTable.Rows.Count > 0)
             {
@@ -62,17 +57,19 @@ namespace MAssenger.DAL
 
         public override ICollection<Profile> ReadAll()
         {
-            DataTable dataTable = idb.ReadData("select * from profile ");
+            DataTable dataTable = DBContext.ReadData("select * from profile ");
             List<Profile> _profiles = new List<Profile>();
             foreach (DataRow dataRow in dataTable.Rows)
             {
-                Profile _profile = new Profile();
-                _profile.Id = UInt64.Parse(dataRow["user_id"].ToString());
-                _profile.FirstName = dataRow["firstname"].ToString();
-                _profile.LastName = dataRow["lastname"].ToString();
-                _profile.Avatar = dataRow["avatar"].ToString();
-                _profile.LastSeen = DateTime.Parse(dataRow["lastseen"].ToString());
-                _profile.Bio = dataRow["bio"].ToString();
+                Profile _profile = new Profile
+                {
+                    Id = UInt64.Parse(dataRow["user_id"].ToString()),
+                    FirstName = dataRow["firstname"].ToString(),
+                    LastName = dataRow["lastname"].ToString(),
+                    Avatar = dataRow["avatar"].ToString(),
+                    LastSeen = DateTime.Parse(dataRow["lastseen"].ToString()),
+                    Bio = dataRow["bio"].ToString()
+                };
 
                 _profiles.Add(_profile);
             }
@@ -88,7 +85,7 @@ namespace MAssenger.DAL
             }
             else
             {
-                idb.WriteData($"update  `profile` set `firstname` = {entity.FirstName} and `lastname` = {entity.LastName} " +
+                DBContext.WriteData($"update  `profile` set `firstname` = {entity.FirstName} and `lastname` = {entity.LastName} " +
                     $" and `avatar` = {entity.Avatar} and `lastseen` = {entity.LastSeen} and `bio` = {entity.Bio}  where `user_id` = {entity.Id}  ");
             }
 
