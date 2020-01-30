@@ -13,6 +13,6 @@ namespace MAssenger
         LastSeenInAmonth,
         LastSeenAlongTimeAgo,
         NotDefined,
-        bot
+        Bot
     }
 }

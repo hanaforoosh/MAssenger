@@ -19,14 +19,6 @@ namespace MAssenger.Models
 
         public SeenStatus LastSeenStatus { get; set; }
 
-        public DateTime LastSeen
-        {
-            get => default;
-            set
-            {
-            }
-        }
-
         public string LastName { get; set; }
 
         public string FirstName { get; set; }

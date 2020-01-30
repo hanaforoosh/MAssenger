@@ -10,8 +10,8 @@ namespace MAssenger
 {
     public class Conversation : AModel
     {
-        private System.Collections.Generic.ICollection<Account> Members = new List<Account>();
-        private ICollection<Message> Messages = new List<Message>();
+        public System.Collections.Generic.ICollection<Account> Members = new List<Account>();
+        public ICollection<Message> Messages = new List<Message>();
         public bool Join(Account user)
         {
             Members.Add(user);
@@ -29,7 +29,7 @@ namespace MAssenger
                 return false;
             }
         }
-        public bool NewMessage(Message m)
+        public virtual bool NewMessage(Message m)
         {
             Messages.Add(m);
             return true;

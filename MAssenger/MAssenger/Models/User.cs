@@ -10,6 +10,14 @@ namespace MAssenger.Models
         private ICollection<Conversation> Conversations = new List<Conversation>();
 
         public string PhoneNumber { get; set; }
+
+        public DateTime LastSeen
+        {
+            get => default;
+            set
+            {
+            }
+        }
         public User()
         {
             User a = new User();
