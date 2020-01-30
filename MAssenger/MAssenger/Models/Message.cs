@@ -7,13 +7,17 @@ namespace MAssenger.Models
 {
     public class Message : AModel, IEquatable<Message>
     {
-        public Account From
+        public AModel From { get; set; }
+        public AModel To { get; set; }
+        Message()
         {
-            get => default;
-            set
-            {
-            }
+             From = new User();
+             To = new Conversation();
+            
         }
+        
+        
+
 
 
         public string Content
@@ -48,13 +52,6 @@ namespace MAssenger.Models
             }
         }
 
-        public Account To
-        {
-            get => default;
-            set
-            {
-            }
-        }
 
         public bool Equals(Message other)
         {

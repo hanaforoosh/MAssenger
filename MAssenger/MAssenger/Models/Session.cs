@@ -8,7 +8,7 @@ namespace MAssenger.Models
     public class Session : AModel, IEquatable<Session>
     {
         public int SessionId { get; set; }
-        public User User { get; set; }
+        public MAssenger.Models.Account User { get; set; }
         public DateTime Exp { get; set; }
         public LoginType LoginType { get; set; }
         public string MacAddesse { get; set; }

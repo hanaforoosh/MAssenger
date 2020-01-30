@@ -26,18 +26,16 @@ namespace MAssenger.Models
             }
         }
 
-        private ICollection<Session> sessions;
+        //public bool AddSessions(Session s)
+        //{
+        //    sessions.Add(s);
+        //    return true;
+        //}
 
-        public bool AddSessions(Session s)
-        {
-            sessions.Add(s);
-            return true;
-        }
-
-        public ICollection<Session> GetSession()
-        {
-            return sessions;
-        }
+        //public ICollection<Session> GetSession()
+        //{
+        //    return sessions;
+        //}
 
         public Account()
         {
