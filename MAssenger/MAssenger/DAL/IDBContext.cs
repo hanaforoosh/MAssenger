@@ -6,7 +6,7 @@ namespace MAssenger.DAL
 {
     public interface IDBContext
     {
-        void WriteData(string query);
+        UInt64 WriteData(string query);
         DataTable ReadData(string query);
     }
 }

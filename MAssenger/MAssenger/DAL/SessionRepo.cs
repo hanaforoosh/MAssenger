@@ -12,15 +12,16 @@ namespace MAssenger.DAL
 
         public static List<Session> sessions = new List<Session>()
         {
-            new Session(9 , new User(1 , "q" , "qq" , "09160000001") , DateTime.Now , LoginType.google , "1.1.1.1"),
-            new Session(8 , new User(2 , "w" , "ww" , "09160000002") , DateTime.Now , LoginType.google , "1.1.1.2"),
-            new Session(7 , new User(3 , "e" , "ee" , "09160000003") , DateTime.Now , LoginType.google , "1.1.1.3"),
-            new Session(6 , new User(4 , "r" , "rr" , "09160000004") , DateTime.Now , LoginType.google , "1.1.1.4")
+            new Session(new User(1 , "q" , "qq" , "09160000001") , DateTime.Now , LoginType.google , "1.1.1.1"),
+            new Session(new User(2 , "w" , "ww" , "09160000002") , DateTime.Now , LoginType.google , "1.1.1.2"),
+            new Session( new User(3 , "e" , "ee" , "09160000003") , DateTime.Now , LoginType.google , "1.1.1.3"),
+            new Session( new User(4 , "r" , "rr" , "09160000004") , DateTime.Now , LoginType.google , "1.1.1.4")
         };
-        public override bool Create(Session entity)
+        public override Session Create(Session entity)
         {
             sessions.Add(entity);
-            return true;
+            entity.Id = UInt64.Parse(sessions.IndexOf(entity).ToString());
+            return entity;
         }
 
         public override bool Delete(Session entity)
@@ -29,15 +30,15 @@ namespace MAssenger.DAL
             return true;
         }
 
-        public override bool Delete(ulong id)
+        public override bool Delete(AModel aModel)
         {
-            sessions.Remove(sessions.Find(a => a.Id == id));
+            sessions.Remove(sessions.Find(a => a.Id == aModel.Id));
             return true;
         }
 
-        public override Session Read(UInt64 id)
+        public override Session Read(AModel aModel)
         {
-            Session _session = sessions.Find(a => a.Id == id);
+            Session _session = sessions.Find(a => a.Id == aModel.Id );
             return _session;
         }
 
@@ -46,8 +47,9 @@ namespace MAssenger.DAL
             return sessions;
         }
 
-        public override bool Update(Session entity)
+        public override Session Update(Session entity)
         {
+            
             Session _session = sessions.Find(a => a.Id == entity.Id);
             if (sessions.Contains(_session))
             {
@@ -55,7 +57,9 @@ namespace MAssenger.DAL
             }
             sessions.Add(entity);
 
-            return true;
+            entity.Id = UInt64.Parse(sessions.IndexOf(entity).ToString());
+
+            return entity;
         }
     }
 }

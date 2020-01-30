@@ -27,7 +27,7 @@ namespace MAssenger.DAL
             return DT;
         }
 
-        public void WriteData(string query)
+        public UInt64 WriteData(string query)
         {
             var sql_con = new SQLiteConnection("Data Source=DemoT.db;Version=3;New=False;Compress=True;");
             SQLiteCommand sql_cmd;
@@ -36,6 +36,7 @@ namespace MAssenger.DAL
             sql_cmd.CommandText = query;
             sql_cmd.ExecuteNonQuery();
             sql_con.Close();
+            return 1;
         }
 
     }

@@ -13,12 +13,13 @@ namespace MAssenger.DAL
         public ProfileRepo() : base(new DBMySQL()) { }
 
 
-        public override bool Create(Profile entity)
+        public override Profile Create(Profile entity)
         {
             DBContext = new DBMySQL();
-            DBContext.WriteData("insert into `profile` (`user_id` , `firstname` , `lastname` , `avatar` , `lastseen` , `bio`) " +
+           UInt64 id = DBContext.WriteData("insert into `profile` (`user_id` , `firstname` , `lastname` , `avatar` , `lastseen` , `bio`) " +
                 $" values ( {entity.Id}  , '{entity.FirstName}','{entity.LastName}','{entity.Avatar}','{entity.LastSeenStatus}','{entity.Bio}' )");
-            return true;
+            entity.Id = id;
+            return entity;
         }
 
         public override bool Delete(Profile entity)
@@ -28,16 +29,16 @@ namespace MAssenger.DAL
             return true;
         }
 
-        public override bool Delete(UInt64 id)
+        public override bool Delete(AModel aModel)
         {
-            DBContext.WriteData($"delete from `profile` where `user_id` = {id} ");
+            DBContext.WriteData($"delete from `profile` where `user_id` = {aModel.Id} ");
             return true;
         }
 
-        public override Profile Read(UInt64 id)
+        public override Profile Read(AModel aModel)
         {
 
-            DataTable dataTable = DBContext.ReadData("select * from profile where user_id = " + id);
+            DataTable dataTable = DBContext.ReadData("select * from profile where user_id = " + aModel.Id);
             Profile _profile = new Profile();
             if (dataTable.Rows.Count > 0)
             {
@@ -78,20 +79,21 @@ namespace MAssenger.DAL
             return _profiles;
         }
 
-        public override bool Update(Profile entity)
+        public override Profile Update(Profile entity)
         {
-            Profile _profile = Read(entity.Id);
+            
+            Profile _profile = Read(entity);
             if (_profile.Id == 0)
             {
-                Create(entity);
+                _profile = Create(entity);
             }
             else
             {
-                DBContext.WriteData($"update  `profile` set `firstname` = {entity.FirstName} and `lastname` = {entity.LastName} " +
+                _profile.Id = DBContext.WriteData($"update  `profile` set `firstname` = {entity.FirstName} and `lastname` = {entity.LastName} " +
                     $" and `avatar` = {entity.Avatar} and `lastseen` = {entity.LastSeenStatus} and `bio` = {entity.Bio}  where `user_id` = {entity.Id}  ");
             }
 
-            return true;
+            return _profile;
         }
     }
 }

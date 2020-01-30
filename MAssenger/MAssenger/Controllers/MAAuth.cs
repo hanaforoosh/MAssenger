@@ -12,7 +12,7 @@ namespace MAssenger.Controllers
     {
         public Session Login(User user)
         {
-            Session session = new Session(1, user, DateTime.MaxValue, LoginType.MAssenger, "A0-51-0B-BB-B8-3C");
+            Session session = new Session(user, DateTime.MaxValue, LoginType.MAssenger, "A0-51-0B-BB-B8-3C");
             SessionRepo sessionRepo = new SessionRepo();
             sessionRepo.Create(session);
             return session;
@@ -25,7 +25,8 @@ namespace MAssenger.Controllers
         public bool Logout(UInt64 id)
         {
             SessionRepo sessionRepo = new SessionRepo();
-            return sessionRepo.Delete(id);
+            // parameters should be set
+            return sessionRepo.Delete(new Session());
         }
         public bool IsValid(User user)
         {

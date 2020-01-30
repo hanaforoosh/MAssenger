@@ -9,12 +9,12 @@ namespace MAssenger.DAL
     {
         public UserRepo() : base(new DBMySQL()) { }
 
-        public override bool Create(User entity)
+        public override User Create(User entity)
         {
-            DBContext.WriteData("insert into user (`username` , `phonenumber` , `password`) VALUES  ( '" + entity.Username +
+            entity.Id = DBContext.WriteData("insert into user (`username` , `phonenumber` , `password`) VALUES  ( '" + entity.Username +
                 "' , '" + entity.PhoneNumber + "' , '" + entity.Password + "')  ");
-
-            return true;
+            
+            return entity;
         }
 
         public override bool Delete(User entity)
@@ -23,15 +23,15 @@ namespace MAssenger.DAL
                 + " and `phonenumber` = " + entity.PhoneNumber + " and  `password` = " + entity.Password);
             return true;
         }
-        public override bool Delete(UInt64 id)
+        public override bool Delete(AModel aModel)
         {
-            DBContext.WriteData("delete from user where `id` = " + id);
+            DBContext.WriteData("delete from user where `id` = " + aModel.Id);
             return true;
         }
 
-        public override User Read(UInt64 id)
+        public override User Read(AModel aModel)
         {
-            DataTable dataTable = DBContext.ReadData("select * from user where id = " + id);
+            DataTable dataTable = DBContext.ReadData("select * from user where id = " + aModel.Id);
             User _users = new User();
             if (dataTable.Rows.Count > 0)
             {
@@ -64,21 +64,21 @@ namespace MAssenger.DAL
             return users;
         }
 
-        public override bool Update(User entity)
+        public override User Update(User entity)
         {
-            User _user = Read(entity.Id);
+            User _user = Read(entity);
             if (_user.Id == 0)
             {
-                Create(entity);
+                _user = Create(entity);
             }
             else
             {
-                DBContext.WriteData("update user set  `username` = '" + entity.Username
+                _user.Id = DBContext.WriteData("update user set  `username` = '" + entity.Username
                 + "' , `phonenumber` = '" + entity.PhoneNumber + "' ,  `password` = '" + entity.Password + "' where `id` = " + entity.Id );
             }
 
 
-            return true;
+            return _user;
         }
 
     }

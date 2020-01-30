@@ -12,7 +12,6 @@ namespace MAssenger.Models
         public string PhoneNumber { get; set; }
         public User()
         {
-
         }
         public User(UInt64 id, string username, string password, string phonenumber)
         {

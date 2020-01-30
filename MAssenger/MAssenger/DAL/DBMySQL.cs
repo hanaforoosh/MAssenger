@@ -24,7 +24,7 @@ namespace MAssenger.DAL
             return dataTable;
         }
 
-        public void WriteData(string query)
+        public UInt64 WriteData(string query)
         {
             string connString = @"server=localhost;uid=root;password='';database=massenger;port=3306;charset=utf8";
             MySqlConnection conn = new MySqlConnection(connString);
@@ -33,6 +33,7 @@ namespace MAssenger.DAL
             comm.CommandText = query;
             comm.ExecuteNonQuery();
             conn.Close();
+            return 1;
         }
     }
 }

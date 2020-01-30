@@ -31,6 +31,7 @@ namespace MAssenger.Models
         }
 
         public Profile() { }
+        public Profile(UInt64 id) { Id = id; }
 
         public bool Receiver(Profile other)
         {

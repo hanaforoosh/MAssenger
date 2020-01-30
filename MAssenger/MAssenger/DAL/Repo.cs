@@ -11,12 +11,12 @@ namespace MAssenger.DAL
     {
         public IDBContext DBContext{ set; get; }
 
-        public abstract bool Create(T entity);
-        public abstract T Read(UInt64 id);
+        public abstract T Create(T entity);
+        public abstract T Read(AModel id);
         public abstract ICollection<T> ReadAll();
-        public abstract bool Update(T entity);
+        public abstract T Update(T entity);
         public abstract bool Delete(T entity);
-        public abstract bool Delete(UInt64 id);
+        public abstract bool Delete(AModel id);
 
         public Repo(IDBContext dBContext)
         {

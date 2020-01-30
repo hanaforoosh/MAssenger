@@ -14,9 +14,9 @@ namespace MAssenger.Models
         public string MacAddesse { get; set; }
         public Session() { }
 
-        public Session(int sessionId, User user, DateTime exp, LoginType loginType, String macAddress)
+        public Session(User user, DateTime exp, LoginType loginType, String macAddress)
         {
-            SessionId = sessionId;
+            SessionId = -1;
             User = user;
             Exp = exp;
             this.LoginType = loginType;

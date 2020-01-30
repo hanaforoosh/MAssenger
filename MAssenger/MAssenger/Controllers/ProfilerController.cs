@@ -16,7 +16,7 @@ namespace MAssenger.Controllers
         [HttpGet]
         public IHttpActionResult Get(UInt64 id)
         {
-            Profile profile = profileRepo.Read(id);
+            Profile profile = profileRepo.Read(new Profile(id));
             return Ok(profile);
         }
 
@@ -29,14 +29,14 @@ namespace MAssenger.Controllers
         [HttpPost]
         public IHttpActionResult Add([FromUri] Profile profile)
         {
-            bool result = profileRepo.Create(profile);
+            Profile result = profileRepo.Create(profile);
             return Ok(result);
         }
 
         [HttpPut]
         public IHttpActionResult Update([FromUri] Profile profile)
         {
-            bool result = profileRepo.Update(profile);
+            Profile result = profileRepo.Update(profile);
             return Ok(result);
         }
 

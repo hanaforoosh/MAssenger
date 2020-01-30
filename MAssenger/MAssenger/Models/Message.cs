@@ -10,10 +10,7 @@ namespace MAssenger.Models
         public AModel From { get; set; }
         public AModel To { get; set; }
         Message()
-        {
-             From = new User();
-             To = new Conversation();
-            
+        {   
         }
         
         

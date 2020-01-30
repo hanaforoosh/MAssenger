@@ -10,7 +10,7 @@ namespace MAssenger.DAL
     {
         public MessageRepo() : base(new DBMySQL()) { }
 
-        public override bool Create(Message entity)
+        public override Message Create(Message entity)
         {
             throw new NotImplementedException();
         }
@@ -20,12 +20,12 @@ namespace MAssenger.DAL
             throw new NotImplementedException();
         }
 
-        public override bool Delete(ulong id)
+        public override bool Delete(AModel aModel)
         {
             throw new NotImplementedException();
         }
 
-        public override Message Read(ulong id)
+        public override Message Read(AModel aModel)
         {
             throw new NotImplementedException();
         }
@@ -35,7 +35,7 @@ namespace MAssenger.DAL
             throw new NotImplementedException();
         }
 
-        public override bool Update(Message entity)
+        public override Message Update(Message entity)
         {
             throw new NotImplementedException();
         }

@@ -17,7 +17,8 @@ namespace MAssenger.Controllers
         [HttpGet]
         public IHttpActionResult Get(UInt64 id)
         {
-            User user = userRepo.Read(id);
+            //set the parameters
+            User user = userRepo.Read(new User());
             return Ok(user);
         }
 
@@ -30,14 +31,14 @@ namespace MAssenger.Controllers
         [HttpPost]
         public IHttpActionResult Add([FromUri] User user)
         {
-            bool result = userRepo.Create(user);
+            User result = userRepo.Create(user);
             return Ok(result);
         }
 
         [HttpPut]
         public IHttpActionResult Update([FromUri] User user)
         {
-            bool result = userRepo.Update(user);
+            User result = userRepo.Update(user);
             return Ok(result);
         }
 
