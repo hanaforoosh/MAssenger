@@ -10,10 +10,10 @@ namespace MAssenger.Controllers
 {
     public interface IAuthentication
     {
-        Session Login(User user);
+        Session Login(Credential cr);
         bool Logout(Session session);
-        bool Logout(UInt64 id);
-        bool IsValid(User user);
+        bool Logout(Credential cr);
+        bool IsValid(Credential cr);
         bool IsValid(Session session);
     }
 }
