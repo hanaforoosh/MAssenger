@@ -15,13 +15,13 @@
     </TypeIdentifier>
   </Class>
   <Class Name="MAssenger.Conversation">
-    <Position X="8.25" Y="5.25" Width="2.5" />
+    <Position X="7.75" Y="4.75" Width="2.5" />
     <InheritanceLine Type="MAssenger.Models.AModel" ManuallyRouted="true">
       <Path>
-        <Point X="7" Y="2.247" />
-        <Point X="7" Y="4.239" />
-        <Point X="9.5" Y="4.239" />
-        <Point X="9.5" Y="5.25" />
+        <Point X="6.5" Y="2.497" />
+        <Point X="6.5" Y="4.239" />
+        <Point X="9" Y="4.239" />
+        <Point X="9" Y="4.75" />
       </Path>
     </InheritanceLine>
     <TypeIdentifier>
@@ -84,11 +84,11 @@
       <FileName>DAL\MessageRepo.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="MAssenger.DAL.ProfileRepo">
+  <Class Name="MAssenger.DAL.AccountRepo">
     <Position X="8" Y="16.75" Width="2.5" />
     <TypeIdentifier>
       <HashCode>AAQAAAAAAAAAAAAAEAAAAAAgAAEAAEAAAAAAAAAAAAA=</HashCode>
-      <FileName>DAL\ProfileRepo.cs</FileName>
+      <FileName>DAL\AccountRepo.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="MAssenger.DAL.Repo&lt;T&gt;">
@@ -113,26 +113,25 @@
     </TypeIdentifier>
   </Class>
   <Class Name="MAssenger.Models.Account">
-    <Position X="3.25" Y="4.75" Width="3" />
+    <Position X="2.5" Y="4.25" Width="3" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAACAAAAgQAAAAAAAAAAAAASBBAAQAIAAAA=</HashCode>
+      <HashCode>AAAAAEAAAAAAAAAAiAQBAAAAAAAAAAAQBAAgQAIAAAg=</HashCode>
       <FileName>Models\Account.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
       <Property Name="Credential" />
-      <Property Name="Profile1" />
     </ShowAsAssociation>
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="MAssenger.Models.AModel">
-    <Position X="6.25" Y="0.5" Width="1.5" />
+    <Position X="5.75" Y="0.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Models\AModel.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="MAssenger.Models.Bot">
-    <Position X="1.25" Y="9" Width="1.5" />
+    <Position X="0.5" Y="9.25" Width="3.25" />
     <TypeIdentifier>
       <HashCode>AAAAAgAAAAAAAAAAgAAAAAAAEAAAAABAAAACAAAAAAA=</HashCode>
       <FileName>Models\Bot.cs</FileName>
@@ -140,7 +139,7 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="MAssenger.Models.Credential">
-    <Position X="2.25" Y="0.5" Width="1.5" />
+    <Position X="2.5" Y="1" Width="2.25" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAACAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Models\Credentials.cs</FileName>
@@ -154,27 +153,11 @@
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
-  <Class Name="MAssenger.Models.Profile">
-    <Position X="0.5" Y="3" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAEAAAAAAAAAAiAQBAAAAAAAEAAAAAAAgAAAAAEg=</HashCode>
-      <FileName>Models\Profile.cs</FileName>
-    </TypeIdentifier>
-    <Lollipop Position="0.2" />
-  </Class>
   <Class Name="MAssenger.Models.Session">
-    <Position X="7" Y="9" Width="3" />
+    <Position X="8" Y="9.5" Width="3" />
     <TypeIdentifier>
       <HashCode>AAADAAAAAAAAAAAAgAAAIAAIAAAEAAAAAAAAAAAAAAE=</HashCode>
       <FileName>Models\Session.cs</FileName>
-    </TypeIdentifier>
-    <Lollipop Position="0.2" />
-  </Class>
-  <Class Name="MAssenger.Models.User">
-    <Position X="3.75" Y="9.25" Width="2.25" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAIAAAAAAAAAgAAAQBAAAAAQAABAAAAAAAAAAAA=</HashCode>
-      <FileName>Models\User.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
@@ -191,6 +174,14 @@
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Group.cs</FileName>
     </TypeIdentifier>
+  </Class>
+  <Class Name="MAssenger.Models.User">
+    <Position X="4.25" Y="9.25" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAAAAAAAAAgAAAQBAAAAAQAABAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\User.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
   </Class>
   <Interface Name="MAssenger.Controllers.IAuthentication" Collapsed="true">
     <Position X="12" Y="3.75" Width="1.5" />
@@ -216,7 +207,7 @@
   <Enum Name="MAssenger.SeenStatus">
     <Position X="15.75" Y="6" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAIAAAAAAAAAAgAAEAAAAAAAAAEAAAAAAgAAAAA=</HashCode>
+      <HashCode>AAAAAAIAAAAAAAAAAgAAEgAAAAAAAAEAAAAAAgAAAAA=</HashCode>
       <FileName>Models\SeenStatus.cs</FileName>
     </TypeIdentifier>
   </Enum>

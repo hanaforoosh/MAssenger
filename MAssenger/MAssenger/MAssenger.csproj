@@ -117,7 +117,7 @@
     <Compile Include="DAL\IDBContext.cs" />
     <Compile Include="DAL\Repo.cs" />
     <Compile Include="DAL\MessageRepo.cs" />
-    <Compile Include="DAL\ProfileRepo.cs" />
+    <Compile Include="DAL\AccountRepo.cs" />
     <Compile Include="DAL\SessionRepo.cs" />
     <Compile Include="DAL\UserRepo.cs" />
     <Compile Include="Global.asax.cs">
@@ -128,7 +128,6 @@
     <Compile Include="Models\Credentials.cs" />
     <Compile Include="Models\LoginType.cs" />
     <Compile Include="Models\Message.cs" />
-    <Compile Include="Models\Profile.cs" />
     <Compile Include="Models\Session.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

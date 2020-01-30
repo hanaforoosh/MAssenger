@@ -1,20 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 
 namespace MAssenger.Models
 {
     public class Account : AModel, IEquatable<Account>
     {
-        public string Username { get; set; }
-        public string Password { get; set; }
-
-        public Profile Profile
-        {
-            get => default;
-            set
-            {
-            }
-        }
 
         public ICollection<Message> Inbox { get; set; }
 
@@ -25,6 +16,24 @@ namespace MAssenger.Models
             {
             }
         }
+
+        public SeenStatus LastSeenStatus { get; set; }
+
+        public DateTime LastSeen
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
+        public string LastName { get; set; }
+
+        public string FirstName { get; set; }
+
+        public string Bio { get; set; }
+
+        public Image Avatar { get; set; }
 
         //public bool AddSessions(Session s)
         //{
@@ -43,9 +52,9 @@ namespace MAssenger.Models
         }
         public Account(UInt64 id, string username, string password)
         {
-            Id = id;
-            Password = password;
-            Username = username;
+            //Id = id;
+            //Password = password;
+            //Username = username;
         }
 
         public bool Receive(Message message)
@@ -67,12 +76,5 @@ namespace MAssenger.Models
             throw new NotImplementedException();
         }
 
-        public Profile Profile1
-        {
-            get => default;
-            set
-            {
-            }
-        }
     }
 }

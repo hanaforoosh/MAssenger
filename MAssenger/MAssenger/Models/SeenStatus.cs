@@ -12,6 +12,7 @@ namespace MAssenger
         LastSeenRecently,
         LastSeenInAmonth,
         LastSeenAlongTimeAgo,
-        NotDefined
+        NotDefined,
+        bot
     }
 }

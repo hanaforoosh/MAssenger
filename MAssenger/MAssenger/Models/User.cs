@@ -12,6 +12,8 @@ namespace MAssenger.Models
         public string PhoneNumber { get; set; }
         public User()
         {
+            User a = new User();
+            
         }
         public User(UInt64 id, string username, string password, string phonenumber)
         {
@@ -41,7 +43,8 @@ namespace MAssenger.Models
 
         public bool Equals(User other)
         {
-            throw new NotImplementedException();
+            return true; // Id = other.Id && other.
+
         }
     }
 }
