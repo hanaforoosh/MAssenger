@@ -15,8 +15,10 @@ namespace MAssenger.DAL
             string connection = @"server=localhost;uid=root;password='';database=massenger;port=3306;charset=utf8;Convert Zero Datetime=True";
             MySqlConnection conn = new MySqlConnection(connection);
             conn.Open();
-            MySqlDataAdapter adapter = new MySqlDataAdapter();
-            adapter.SelectCommand = new MySqlCommand(query, conn);
+            MySqlDataAdapter adapter = new MySqlDataAdapter
+            {
+                SelectCommand = new MySqlCommand(query, conn)
+            };
             adapter.Fill(dataTable);
             conn.Close();
             return dataTable;
