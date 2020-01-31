@@ -2,6 +2,7 @@
 using MAssenger.Models;
 using Newtonsoft.Json.Linq;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -15,29 +16,45 @@ namespace MAssenger.Controllers
         [HttpPost]
         public IHttpActionResult SendMessage([FromBody] JObject request)
         {
-            //Repo<Conversation> conversationRepo = new ConversationRepo();
-            //Repo<User> userRepo = new UserRepo();
-            //IPushNotifier notifier = new PNotifier();
+            Repo<Conversation> conversationRepo = new ConversationRepo();
+            Repo<User> userRepo = new UserRepo();
+            IPushNotifier notifier = new PNotifier();
 
-            //Message message = request.ToObject<Message>();
-            //var to = message.To;
-            //var from = message.From;
-            //message.Status = MessageStatus.Sent;
+            Message message = request.ToObject<Message>();
+            Account to = new Account();
+            to.Id = message.To.Id;
 
-            //Conversation conversation =conversationRepo.Read(to);
+            Account from = new Account();
+            from.Id = message.From.Id;
+            message.Status = MessageStatus.Sent;
+            Conversation find = new Conversation();
+
+            find.Members.Add(from);
+            find.Members.Add(to);
+            find.conversationType = ConversationType.DoubleChat;
+            find.Messages.Add(message);
+
+
+            conversationRepo.Create(find);
+
+
             //conversation.NewMessage(message);
             //conversationRepo.Update(conversation);
-            //var members = conversation.Members;
-            //foreach (var mem in members)
-            //{
-            //    if (mem.Id != from.Id)
-            //    {
-            //        User user = userRepo.Read(mem);
-            //        user.AddMessageToInbox(message);
-            //        userRepo.Update(user);
-            //        notifier.notify(message);
-            //    }
-            //}
+
+            //List<User> members = find.Members;
+            List<Account> account = new List<Account>();
+            foreach(Account mem in find.Members)
+            {
+                account.Add(mem);
+            }
+
+            for (int i =0; i < account.Count; i++)
+            {
+                if (account[i].Id != from.Id)
+                {
+                    account[i] = userRepo.Read(account[i]);
+                }
+            }
 
             return Ok();
         }

@@ -55,6 +55,34 @@ namespace MAssenger.DAL
                 _users.LastSeen = DateTime.Now; // Datetime.Parse(dataRow["LastSeen"].ToString());
                 _users.LastSeenStatus = SeenStatus.Online; // dataRow["LastSeenStatus"].ToString();
             }
+
+            dataTable = DBContext.ReadData(" select * from conversation inner join message on `conversation`.`conversation` = message.conversation_id where amodel_id = " + aModel.Id);
+            List<Message> messages = new List<Message>();
+            foreach(DataRow dr in dataTable.Rows)
+            {
+                Message message = new Message()
+                {
+                    Content = dr["Content"].ToString(),
+                    ReceivedTime = DateTime.Now,
+                    SentDateTime = DateTime.Now,
+                    Status = MessageStatus.Sent,
+                    Id = UInt64.Parse(dr["amodel_id"].ToString())
+                };
+
+                User from = new User();
+                from.Id = UInt64.Parse(dr["from"].ToString());
+                message.From = from;
+
+                User to = new User();
+                to.Id = UInt64.Parse(dr["from"].ToString());
+                message.To = to;
+
+                messages.Add(message);
+
+            }
+
+            _users.Inbox = messages;
+
             return _users;
         }
 
@@ -67,7 +95,7 @@ namespace MAssenger.DAL
             {
                 User _user = new User
                 {
-
+                    
                     Id = UInt64.Parse(dataRow["id"].ToString()),
                     PhoneNumber = dataRow["phonenumber"].ToString(),
                     Avatar = null, // dataRow["Avatar"].ToString();
@@ -79,8 +107,37 @@ namespace MAssenger.DAL
             };
                 _user.Credential.Username = dataRow["username"].ToString();
                 _user.Credential.Password = dataRow["password"].ToString();
+
+                dataTable = DBContext.ReadData(" select * from conversation inner join message on `conversation`.`conversation` = message.conversation_id where amodel_id = " + _user.Id);
+                List<Message> messages = new List<Message>();
+                foreach (DataRow dr in dataTable.Rows)
+                {
+                    Message message = new Message()
+                    {
+                        Content = dr["Content"].ToString(),
+                        ReceivedTime = DateTime.Now,
+                        SentDateTime = DateTime.Now,
+                        Status = MessageStatus.Sent,
+                        Id = UInt64.Parse(dr["amodel_id"].ToString())
+                    };
+
+                    User from = new User();
+                    from.Id = UInt64.Parse(dr["from"].ToString());
+                    message.From = from;
+
+                    User to = new User();
+                    to.Id = UInt64.Parse(dr["from"].ToString());
+                    message.To = to;
+
+                    messages.Add(message);
+
+                }
+
+                _user.Inbox = messages;
+
                 users.Add(_user);
             }
+
             return users;
         }
 
