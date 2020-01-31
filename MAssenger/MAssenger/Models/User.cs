@@ -33,6 +33,10 @@ namespace MAssenger.Models
             return true;
         }
 
+        public ICollection<Conversation> GetConversations()
+        {
+            return Conversations;
+        }
         public bool AddMessageToInbox(Message c)
         {
             Inbox.Add(c);

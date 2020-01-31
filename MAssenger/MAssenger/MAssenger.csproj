@@ -104,9 +104,12 @@
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\IAuth.cs" />
+    <Compile Include="Controllers\IPushNotifier.cs" />
     <Compile Include="Controllers\MAAuth.cs" />
     <Compile Include="Controllers\MessageController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\PNotifier.cs" />
+    <Compile Include="Controllers\ProfileController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Models\DoubleChat.cs" />
     <Compile Include="Group.cs" />
@@ -135,9 +138,6 @@
     <Compile Include="Models\SeenStatus.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="ClassDiagram1.cd" />
-    <Content Include="ClassDiagram2.cd" />
-    <Content Include="ClassDiagram3.cd" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
