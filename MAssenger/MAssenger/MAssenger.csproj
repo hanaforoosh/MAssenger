@@ -115,6 +115,7 @@
     <Compile Include="Controllers\PNotifier.cs" />
     <Compile Include="Controllers\ProfileController.cs" />
     <Compile Include="DAL\BotRepo.cs" />
+    <Compile Include="DAL\ChannelRepo.cs" />
     <Compile Include="DAL\ConversationRepo.cs" />
     <Compile Include="DAL\DoubleChatRepo.cs" />
     <Compile Include="Models\Channel.cs" />

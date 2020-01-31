@@ -15,39 +15,32 @@ namespace MAssenger.Controllers
         [HttpGet]
         public IHttpActionResult JoinConversation([FromBody] JObject request)
         {
+            Conversation conv = request["conversation"].ToObject<Conversation>();
+            Repo<Conversation> cr = new ConversationRepo();
+            Account user = request["account"].ToObject<Account>();
+            conv.Join(user);
+            cr.Update(conv);
             return Ok();
         }
 
         [HttpGet]
         public IHttpActionResult CreateConversation([FromBody] JObject request)
         {
+            Conversation conv = request["conversation"].ToObject<Conversation>();
+            Repo<Conversation> cr = new ConversationRepo();
+            cr.Create(conv);
             return Ok();
         }
 
         [HttpGet]
         public IHttpActionResult LeaveConversation([FromBody] JObject request)
         {
+            Conversation conv = request["conversation"].ToObject<Conversation>();
+            Repo<Conversation> cr = new ConversationRepo();
+            Account user = request["account"].ToObject<Account>();
+            conv.Leave(user);
+            cr.Update(conv);
             return Ok();
         }
-
-
-        //public ICollection<Conversation> GetConversationByAmodel_id(AModel aModel)
-        //{
-            
-        //    List<Conversation> SelectedConversations = new List<Conversation>();
-        //    Repo <Conversation> conversationRepo = new ConversationRepo();
-        //    ICollection<Conversation> AllConversations = conversationRepo.ReadAll();
-        //    foreach(Conversation co in AllConversations)
-        //    {
-        //        foreach(Account ac in co.Members)
-        //        {
-        //            if(ac.Id == aModel.Id)
-        //            {
-        //                SelectedConversations.Add(co);
-        //            }
-        //        }
-        //    }
-        //    return SelectedConversations;
-        //}
     }
 }
