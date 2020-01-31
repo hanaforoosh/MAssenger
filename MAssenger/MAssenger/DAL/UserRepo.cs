@@ -48,12 +48,12 @@ namespace MAssenger.DAL
                 _users.Credential.Password = dataRow["password"].ToString();
                 _users.Credential.Username = dataRow["username"].ToString();
                 _users.PhoneNumber = dataRow["phonenumber"].ToString();
-                //_users.Avatar = dataRow["Avatar"].ToString(); 
-                _users.Bio = dataRow["phonenumber"].ToString();
-                _users.FirstName = dataRow["phonenumber"].ToString();
-                _users.LastName = dataRow["phonenumber"].ToString();
-                _users.LastSeen = DateTime.Parse(dataRow["phonenumber"].ToString());
-                //_users.LastSeenStatus =  dataRow["LastSeenStatus"].ToString();
+                _users.Avatar = null; // dataRow["Avatar"].ToString();
+                _users.Bio = dataRow["Bio"].ToString();
+                _users.FirstName = dataRow["FirstName"].ToString();
+                _users.LastName = dataRow["LastName"].ToString();
+                _users.LastSeen = DateTime.Now; // Datetime.Parse(dataRow["LastSeen"].ToString());
+                _users.LastSeenStatus = SeenStatus.Online; // dataRow["LastSeenStatus"].ToString();
             }
             return _users;
         }
@@ -70,13 +70,13 @@ namespace MAssenger.DAL
 
                     Id = UInt64.Parse(dataRow["id"].ToString()),
                     PhoneNumber = dataRow["phonenumber"].ToString(),
-                    //_users.Avatar = dataRow["Avatar"].ToString(); 
+                    Avatar = null, // dataRow["Avatar"].ToString();
                     Bio = dataRow["Bio"].ToString(),
                     FirstName = dataRow["FirstName"].ToString(),
                     LastName = dataRow["LastName"].ToString(),
-                    //LastSeen = DateTime.Parse(dataRow["DateTime"].ToString())
-                    //_users.LastSeenStatus =  dataRow["LastSeenStatus"].ToString();
-                };
+                    LastSeen = DateTime.Now , // Datetime.Parse(dataRow["LastSeen"].ToString());
+                    LastSeenStatus = SeenStatus.Online // dataRow["LastSeenStatus"].ToString();
+            };
                 _user.Credential.Username = dataRow["username"].ToString();
                 _user.Credential.Password = dataRow["password"].ToString();
                 users.Add(_user);

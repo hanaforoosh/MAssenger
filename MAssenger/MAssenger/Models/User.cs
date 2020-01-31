@@ -12,14 +12,8 @@ namespace MAssenger.Models
         private readonly Repo<User> userRepo = new UserRepo();
 
         public string PhoneNumber { get; set; }
-
-        public DateTime LastSeen
-        {
-            get => default;
-            set
-            {
-            }
-        }
+        
+        public DateTime LastSeen { get; set; }
         public User()
         {
             

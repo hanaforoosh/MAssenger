@@ -18,7 +18,9 @@ namespace MAssenger.Controllers
         public IHttpActionResult Get(UInt64 id)
         {
             //set the parameters
-            User user = userRepo.Read(new User());
+            AModel aModel = new User();
+            aModel.Id = id;
+            User user = userRepo.Read(aModel);
             return Ok(user);
         }
 
