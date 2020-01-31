@@ -1,23 +1,21 @@
 ﻿using MAssenger.Models;
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Data;
 using System.Linq;
 using System.Web;
 
 namespace MAssenger.DAL
 {
-    public class DoubleChatRepo : Repo<DoubleChat>
+    public class BotRepo : Repo<Bot>
     {
-        public DoubleChatRepo() : base(new DBMySQL()) { }
+        public BotRepo() : base(new DBMySQL()) { }
 
-        public override DoubleChat Create(DoubleChat entity)
+        public override Bot Create(Bot entity)
         {
             throw new NotImplementedException();
         }
 
-        public override bool Delete(DoubleChat entity)
+        public override bool Delete(Bot entity)
         {
             throw new NotImplementedException();
         }
@@ -27,17 +25,17 @@ namespace MAssenger.DAL
             throw new NotImplementedException();
         }
 
-        public override DoubleChat Read(AModel id)
+        public override Bot Read(AModel id)
         {
             throw new NotImplementedException();
         }
 
-        public override ICollection<DoubleChat> ReadAll()
+        public override ICollection<Bot> ReadAll()
         {
             throw new NotImplementedException();
         }
 
-        public override DoubleChat Update(DoubleChat entity)
+        public override Bot Update(Bot entity)
         {
             throw new NotImplementedException();
         }
