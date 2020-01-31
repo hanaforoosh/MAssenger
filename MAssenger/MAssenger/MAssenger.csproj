@@ -103,6 +103,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\ChannelController.cs" />
+    <Compile Include="Controllers\ConversationController.cs" />
+    <Compile Include="Controllers\DoubleChatController.cs" />
+    <Compile Include="Controllers\GroupController.cs" />
     <Compile Include="Controllers\IAuth.cs" />
     <Compile Include="Controllers\IPushNotifier.cs" />
     <Compile Include="Controllers\MAAuth.cs" />
@@ -110,13 +114,13 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\PNotifier.cs" />
     <Compile Include="Controllers\ProfileController.cs" />
-    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="DAL\BotRepo.cs" />
     <Compile Include="DAL\ConversationRepo.cs" />
     <Compile Include="DAL\DoubleChatRepo.cs" />
+    <Compile Include="Models\Channel.cs" />
     <Compile Include="Models\ConversationType.cs" />
     <Compile Include="Models\DoubleChat.cs" />
-    <Compile Include="Group.cs" />
+    <Compile Include="Models\Group.cs" />
     <Compile Include="Models\Account.cs" />
     <Compile Include="Models\Bot.cs" />
     <Compile Include="Models\Conversation.cs" />

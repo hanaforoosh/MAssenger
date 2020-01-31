@@ -13,12 +13,11 @@ namespace MAssenger.Controllers
 {
     public class AccountController : ApiController
     {
-        readonly private Repo<User> userRepo = new UserRepo();
-        readonly private IAuthentication mauth = new MAAuth();
 
         [HttpPost]
         public IHttpActionResult Login([FromBody] JObject request)
         {
+            IAuthentication mauth = new MAAuth();
             Credential cr = request.ToObject<Credential>();
             Session session = mauth.Login(cr);
             if (session == null)
@@ -29,6 +28,7 @@ namespace MAssenger.Controllers
         [HttpPost]
         public IHttpActionResult Signup([FromBody] JObject request)
         {
+            IAuthentication mauth = new MAAuth();
             Credential cr = request.ToObject<Credential>();
             Session session = mauth.SignUp(cr);
             if (session == null)
@@ -39,6 +39,7 @@ namespace MAssenger.Controllers
         [HttpDelete]
         public IHttpActionResult DeleteAccount([FromBody] JObject request)
         {
+            Repo<User> userRepo = new UserRepo();
             Credential cr = request.ToObject<Credential>();
             bool result = userRepo.Delete(cr);
             return Ok(result);
@@ -49,12 +50,14 @@ namespace MAssenger.Controllers
         [HttpGet]
         public IHttpActionResult GetAll()
         {
+            Repo<User> userRepo = new UserRepo();
             return Ok(userRepo.ReadAll());
         }
 
         [HttpGet]
         public IHttpActionResult Get([FromBody] JObject request)
         {
+            Repo<User> userRepo = new UserRepo();
             AModel model = request.ToObject<User>();
             User user = userRepo.Read(model);
             return Ok(user);

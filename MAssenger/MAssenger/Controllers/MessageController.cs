@@ -12,6 +12,7 @@ namespace MAssenger.Controllers
 {
     public class MessageController : ApiController
     {
+        [HttpPost]
         public IHttpActionResult SendMessage([FromBody] JObject request)
         {
             //Repo<Conversation> conversationRepo = new ConversationRepo();
@@ -41,6 +42,7 @@ namespace MAssenger.Controllers
             return Ok();
         }
 
+        [HttpGet]
         public IHttpActionResult GetNewMessages([FromBody] JObject request)
         {
             AModel model = request.ToObject<AModel>();

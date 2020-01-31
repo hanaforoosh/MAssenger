@@ -10,10 +10,19 @@ namespace MAssenger
 {
     public class DoubleChat : Conversation, IEquatable<DoubleChat>
     {
-        public ICollection<Message> StarMessages = new List<Message>();
+        private ICollection<Message> StarMessages = new List<Message>();
         public bool Equals(DoubleChat other)
         {
             return this.Id == other.Id;
+        }
+
+        public void MarkMessage(Message m)
+        {
+
+        }
+        public void UnMarkMessage(Message m)
+        {
+
         }
     }
 }
