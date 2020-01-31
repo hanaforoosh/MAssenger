@@ -12,41 +12,41 @@ namespace MAssenger.Controllers
 {
     public class UserController : ApiController
     {
-        private User userModel = new User();
+        private Repo<User> userRepo = new UserRepo();
 
         [HttpGet]
         public IHttpActionResult Get(UInt64 id)
         {
             //set the parameters
-            User user = userModel.Read(new User());
+            User user = userRepo.Read(new User());
             return Ok(user);
         }
 
         [HttpGet]
         public IHttpActionResult GetAll()
         {
-            return Ok(userModel.ReadAll());
+            return Ok(userRepo.ReadAll());
         }
 
         [HttpPost]
         public IHttpActionResult Add([FromUri] User user)
         {
             
-            User result = userModel.Create(user);
+            User result = userRepo.Create(user);
             return Ok(result);
         }
 
         [HttpPut]
         public IHttpActionResult Update([FromUri] User user)
         {
-            User result = userModel.Update(user);
+            User result = userRepo.Update(user);
             return Ok(result);
         }
 
         [HttpDelete]
         public IHttpActionResult Delete([FromUri] User user)
         {
-            bool result = userModel.Delete(user);
+            bool result = userRepo.Delete(user);
             return Ok(result);
         }
 

@@ -22,37 +22,6 @@ namespace MAssenger.Models
 
         public Image Avatar { get; set; }
 
-        public Account Create(Account entity)
-        {
-            return accountRepo.Create(entity);
-        }
-
-        public Account Read(AModel amodel)
-        {
-            return accountRepo.Read(amodel);
-        }
-
-        public ICollection<Account> ReadAll()
-        {
-            return accountRepo.ReadAll();
-        }
-
-        public Account Update(Account entity)
-        {
-            return accountRepo.Update(entity);
-        }
-
-        public bool Delete(Account entity)
-        {
-            return accountRepo.Delete(entity);
-        }
-
-        public bool Delete(AModel aModel)
-        {
-            return accountRepo.Delete(aModel);
-        }
-
-
         //public bool AddSessions(Session s)
         //{
         //    sessions.Add(s);

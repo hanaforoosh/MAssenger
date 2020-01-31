@@ -46,7 +46,7 @@ namespace MAssenger.DAL
                 _account.LastName = dataRow["lastname"].ToString();
                 _account.Avatar = null;
                 _account.LastSeenStatus = SeenStatus.Online;
-                _account.LastSeen = DateTime.Parse(dataRow["username"].ToString());
+                //_account.LastSeen = DateTime.Parse(dataRow["username"].ToString());
                 _account.Bio = dataRow["bio"].ToString();
 
             }
@@ -68,7 +68,7 @@ namespace MAssenger.DAL
                     LastName = dataRow["lastname"].ToString(),
                     Avatar = null,
                     LastSeenStatus = SeenStatus.Online,
-                    LastSeen = DateTime.Parse(dataRow["lastseen"].ToString()),
+                    //LastSeen = DateTime.Parse(dataRow["lastseen"].ToString()),
                     Bio = dataRow["bio"].ToString()
                 };
 

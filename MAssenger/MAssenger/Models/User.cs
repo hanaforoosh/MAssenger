@@ -33,36 +33,6 @@ namespace MAssenger.Models
             PhoneNumber = phonenumber;
         }
 
-        public User Create(User entity)
-        {
-            return userRepo.Create(entity);
-        }
-
-        public User Read( AModel amodel)
-        {
-            return userRepo.Read(amodel);
-        }
-
-        public ICollection<User> ReadAll()
-        {
-            return userRepo.ReadAll();
-        }
-
-        public User Update(User entity)
-        {
-            return userRepo.Update(entity);
-        }
-
-        public bool Delete(User entity)
-        {
-            return userRepo.Delete(entity);
-        }
-
-        public bool Delete(AModel aModel)
-        {
-            return userRepo.Delete(aModel);
-        }
-
         public bool AddConversation(Conversation c)
         {
             Conversations.Add(c);
