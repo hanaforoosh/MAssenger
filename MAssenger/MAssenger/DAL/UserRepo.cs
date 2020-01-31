@@ -11,36 +11,49 @@ namespace MAssenger.DAL
 
         public override User Create(User entity)
         {
-            entity.Id = DBContext.WriteData("insert into user (`username` , `phonenumber` , `password`) VALUES  ( '" + entity.Username +
-                "' , '" + entity.PhoneNumber + "' , '" + entity.Password + "')  ");
-            
+            UInt64 amodelId = DBContext.WriteData(" insert into amodel (`type`) values ('user') ");
+
+            DBContext.WriteData($"insert into user (`phonenumber` , `amodel_id` , `lastseen`) values ( '{entity.PhoneNumber}' , { amodelId } , '{DateTime.Now}')");
+
+            DBContext.WriteData("insert into account ( `amodel_id` , `avatar` , `bio` , `firstname` , `lastname` , `lastseenstatus` , `username` , `password`)" +
+                $" values ( {amodelId} ,'{entity.Avatar}','{entity.Bio}','{entity.FirstName}' ,'{entity.LastName}','{entity.LastSeenStatus}','{entity.Credential.Username}','{entity.Credential.Password}')");
+
+            entity.Id = amodelId;
             return entity;
         }
 
         public override bool Delete(User entity)
         {
-            DBContext.WriteData("delete from user where `id` = " + entity.Id + " `username` = " + entity.Username
-                + " and `phonenumber` = " + entity.PhoneNumber + " and  `password` = " + entity.Password);
+            DBContext.WriteData("delete from user where `amodel_id` = " + entity.Id);
+            DBContext.WriteData("delete from account where `amodel_id` = " + entity.Id);
+            DBContext.WriteData("delete from amodel where `id` = " + entity.Id);
             return true;
         }
         public override bool Delete(AModel aModel)
         {
-            DBContext.WriteData("delete from user where `id` = " + aModel.Id);
+            DBContext.WriteData("delete from user where `amodel_id` = " + aModel.Id);
+            DBContext.WriteData("delete from account where `amodel_id` = " + aModel.Id);
+            DBContext.WriteData("delete from amodel where `id` = " + aModel.Id);
             return true;
         }
 
         public override User Read(AModel aModel)
         {
-            DataTable dataTable = DBContext.ReadData("select * from user where id = " + aModel.Id);
+            DataTable dataTable = DBContext.ReadData("SELECT * FROM	amodel inner join account on amodel.id = account.amodel_id inner join user on amodel.id = user.amodel_id where amodel.id =  " + aModel.Id);
             User _users = new User();
             if (dataTable.Rows.Count > 0)
             {
                 DataRow dataRow = dataTable.Rows[0];
                 _users.Id = UInt64.Parse(dataRow["id"].ToString());
-                _users.Password = dataRow["password"].ToString();
+                _users.Credential.Password = dataRow["password"].ToString();
+                _users.Credential.Username = dataRow["username"].ToString();
                 _users.PhoneNumber = dataRow["phonenumber"].ToString();
-                _users.Username = dataRow["username"].ToString();
-
+                //_users.Avatar = dataRow["Avatar"].ToString(); 
+                _users.Bio = dataRow["phonenumber"].ToString();
+                _users.FirstName = dataRow["phonenumber"].ToString();
+                _users.LastName = dataRow["phonenumber"].ToString();
+                _users.LastSeen = DateTime.Parse(dataRow["phonenumber"].ToString());
+                //_users.LastSeenStatus =  dataRow["LastSeenStatus"].ToString();
             }
             return _users;
         }
@@ -49,16 +62,23 @@ namespace MAssenger.DAL
         {
             List<User> users = new List<User>();
 
-            DataTable dataTable = DBContext.ReadData("select * from user ");
+            DataTable dataTable = DBContext.ReadData("SELECT * FROM	amodel inner join account on amodel.id = account.amodel_id inner join user on amodel.id = user.amodel_id ");
             foreach (DataRow dataRow in dataTable.Rows)
             {
                 User _user = new User
                 {
+
                     Id = UInt64.Parse(dataRow["id"].ToString()),
-                    Password = dataRow["password"].ToString(),
                     PhoneNumber = dataRow["phonenumber"].ToString(),
-                    Username = dataRow["username"].ToString()
+                    //_users.Avatar = dataRow["Avatar"].ToString(); 
+                    Bio = dataRow["Bio"].ToString(),
+                    FirstName = dataRow["FirstName"].ToString(),
+                    LastName = dataRow["LastName"].ToString(),
+                    //LastSeen = DateTime.Parse(dataRow["DateTime"].ToString())
+                    //_users.LastSeenStatus =  dataRow["LastSeenStatus"].ToString();
                 };
+                _user.Credential.Username = dataRow["username"].ToString();
+                _user.Credential.Password = dataRow["password"].ToString();
                 users.Add(_user);
             }
             return users;
@@ -73,8 +93,8 @@ namespace MAssenger.DAL
             }
             else
             {
-                _user.Id = DBContext.WriteData("update user set  `username` = '" + entity.Username
-                + "' , `phonenumber` = '" + entity.PhoneNumber + "' ,  `password` = '" + entity.Password + "' where `id` = " + entity.Id );
+                //_user.Id = DBContext.WriteData("update user set  `username` = '" + entity.Username
+                //+ "' , `phonenumber` = '" + entity.PhoneNumber + "' ,  `password` = '" + entity.Password + "' where `id` = " + entity.Id );
             }
 
 

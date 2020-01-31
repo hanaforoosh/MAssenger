@@ -32,8 +32,7 @@ namespace MAssenger.DAL
             MySqlCommand comm = conn.CreateCommand();
             comm.CommandText = query;
             comm.ExecuteNonQuery();
-            conn.Close();
-            return 1;
+            return UInt64.Parse(comm.LastInsertedId.ToString()) ;
         }
     }
 }

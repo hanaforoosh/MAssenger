@@ -106,7 +106,7 @@
     <Compile Include="Controllers\IAuth.cs" />
     <Compile Include="Controllers\MAAuth.cs" />
     <Compile Include="Controllers\MessageController.cs" />
-    <Compile Include="Controllers\ProfilerController.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Models\DoubleChat.cs" />
     <Compile Include="Group.cs" />

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MAssenger.DAL;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 
@@ -6,16 +7,10 @@ namespace MAssenger.Models
 {
     public class Account : AModel, IEquatable<Account>
     {
-
+        private AccountRepo accountRepo = new AccountRepo();
         public ICollection<Message> Inbox { get; set; }
 
-        public Credential Credential
-        {
-            get => default;
-            set
-            {
-            }
-        }
+        public Credential Credential { get; set; }
 
         public SeenStatus LastSeenStatus { get; set; }
 
@@ -26,6 +21,37 @@ namespace MAssenger.Models
         public string Bio { get; set; }
 
         public Image Avatar { get; set; }
+
+        public Account Create(Account entity)
+        {
+            return accountRepo.Create(entity);
+        }
+
+        public Account Read(AModel amodel)
+        {
+            return accountRepo.Read(amodel);
+        }
+
+        public ICollection<Account> ReadAll()
+        {
+            return accountRepo.ReadAll();
+        }
+
+        public Account Update(Account entity)
+        {
+            return accountRepo.Update(entity);
+        }
+
+        public bool Delete(Account entity)
+        {
+            return accountRepo.Delete(entity);
+        }
+
+        public bool Delete(AModel aModel)
+        {
+            return accountRepo.Delete(aModel);
+        }
+
 
         //public bool AddSessions(Session s)
         //{
@@ -40,7 +66,7 @@ namespace MAssenger.Models
 
         public Account()
         {
-
+            Credential = new Credential();
         }
         public Account(UInt64 id, string username, string password)
         {

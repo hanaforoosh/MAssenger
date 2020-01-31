@@ -13,8 +13,8 @@ namespace MAssenger.Models
         public Bot(UInt64 id, string username, string password)
         {
             Id = id;
-            Password = password;
-            Username = username;
+            Credential.Password = password;
+            Credential.Username = username;
         }
 
         public string AccessToken

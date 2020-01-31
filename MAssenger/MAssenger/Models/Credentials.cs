@@ -7,20 +7,8 @@ namespace MAssenger.Models
 {
     public class Credential : AModel
     {
-        public string Username
-        {
-            get => default;
-            set
-            {
-            }
-        }
+        public string Username { get; set; }
 
-        public string Paswword
-        {
-            get => default;
-            set
-            {
-            }
-        }
+        public string Password { get; set; }
     }
 }
