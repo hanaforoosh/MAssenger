@@ -16,7 +16,7 @@ namespace MAssenger.Controllers
         bool IsValid(Credential cr);
         bool IsValid(Session session);
         Session SignUp(Credential cr);
-        Session SignUp(User ur);
+        bool DeleteAccount(Credential cr);
     }
 
     public class  GoogleAuth: IAuthentication
@@ -50,7 +50,8 @@ namespace MAssenger.Controllers
             throw new NotImplementedException();
         }
 
-        public Session SignUp(User ur)
+
+        public bool DeleteAccount(Credential cr)
         {
             throw new NotImplementedException();
         }
@@ -88,7 +89,7 @@ namespace MAssenger.Controllers
             throw new NotImplementedException();
         }
 
-        public Session SignUp(User ur)
+        public bool DeleteAccount(Credential cr)
         {
             throw new NotImplementedException();
         }

@@ -1,6 +1,7 @@
 ﻿
 using MAssenger.DAL;
 using MAssenger.Models;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,69 +13,52 @@ namespace MAssenger.Controllers
 {
     public class UserController : ApiController
     {
-        private Repo<User> userRepo = new UserRepo();
-        private IAuthentication mauth = new MAAuth();
-        [HttpGet]
-        public IHttpActionResult Get([FromUri] AModel model)
-        {
-            User user = userRepo.Read(model);
-            return Ok(user);
-        }
+        readonly private Repo<User>  userRepo = new UserRepo();
+        readonly private IAuthentication mauth = new MAAuth();
 
         [HttpPost]
-        public IHttpActionResult Login([FromUri] Credential cr)
+        public IHttpActionResult Login([FromBody] JObject request)
         {
-
+            Credential cr = request.ToObject<Credential>();
             Session session = mauth.Login(cr);
             if (session == null)
-                return Unauthorized();
+                return NotFound();
             return Ok(session);
         }
+
         [HttpPost]
-        public IHttpActionResult Signup([FromUri] Credential cr)
+        public IHttpActionResult Signup([FromBody] JObject request)
         {
+            Credential cr = request.ToObject<Credential>();
             Session session = mauth.SignUp(cr);
             if (session == null)
                 return Unauthorized();
             return Ok(session);
         }
-        [HttpPost]
-        public IHttpActionResult Signupur([FromUri] User ur)
+
+        [HttpDelete]
+        public IHttpActionResult DeleteAccount([FromBody] JObject request)
         {
-            Session session = mauth.SignUp(ur);
-            if (session == null)
-                return Unauthorized();
-            return Ok(session);
+            Credential cr = request.ToObject<Credential>();
+            bool result = userRepo.Delete(cr);
+            return Ok(result);
         }
 
+
+        //These codes is kept for test purposes
         [HttpGet]
         public IHttpActionResult GetAll()
         {
             return Ok(userRepo.ReadAll());
         }
 
-        [HttpPost]
-        public IHttpActionResult Add([FromUri] User user)
+        [HttpGet]
+        public IHttpActionResult Get([FromBody] JObject request)
         {
-            
-            User result = userRepo.Create(user);
-            return Ok(result);
+            AModel model = request.ToObject<User>();
+            User user = userRepo.Read(model);
+            return Ok(user);
         }
-
-        [HttpPut]
-        public IHttpActionResult Update([FromUri] User user)
-        {
-            User result = userRepo.Update(user);
-            return Ok(result);
-        }
-
-        [HttpDelete]
-        public IHttpActionResult Delete([FromUri] User user)
-        {
-            bool result = userRepo.Delete(user);
-            return Ok(result);
-        }
-
     }
 
 }

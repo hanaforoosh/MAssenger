@@ -1,4 +1,6 @@
-﻿using MAssenger.Models;
+﻿using MAssenger.DAL;
+using MAssenger.Models;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,21 +12,62 @@ namespace MAssenger.Controllers
 {
     public class MessageController : ApiController
     {
-        public IHttpActionResult SendMessage(Message message, Session session)
+        public IHttpActionResult SendMessage([FromBody] JObject request)
         {
-            throw new System.NotImplementedException();
+            Repo<Conversation> conversationRepo = new ConversationRepo();
+            Repo<User> userRepo = new UserRepo();
+            IPushNotifier notifier = new PNotifier();
+
+            Message message = request.ToObject<Message>();
+            var to = message.To;
+            var from = message.From;
+            message.Status = MessageStatus.Sent;
+
+            Conversation conversation =conversationRepo.Read(to);
+            conversation.NewMessage(message);
+            var members = conversation.Members;
+            foreach (var mem in members)
+            {
+                if (mem.Id != from.Id)
+                {
+                    User user = userRepo.Read(mem);
+                    user.AddMessageToInbox(message);
+                    userRepo.Update(user);
+                    notifier.notify(message);
+                }
+            }
+             
+            return Ok();
         }
 
-        [HttpPut]
-        public IHttpActionResult EditMessage(Message message, Session session)
+        public IHttpActionResult GetNewMessages([FromBody] JObject request)
         {
-            throw new System.NotImplementedException();
+            AModel model = request.ToObject<AModel>();
+            Repo<User> userRepo = new UserRepo();
+            User user = userRepo.Read(model);
+            var inbox = user.Inbox;
+            return Ok(inbox);
+        }
+        public IHttpActionResult GetAllMessages([FromBody] JObject request)
+        {
+            AModel model = request.ToObject<AModel>();
+            Repo<User> userRepo = new UserRepo();
+            User user = userRepo.Read(model);
+            var conversations = user.GetConversations();
+            return Ok(conversations);
+        }
+
+
+        [HttpPut]
+        public IHttpActionResult EditMessage([FromBody] JObject request)
+        {
+            return Ok();
         }
 
         [HttpDelete]
-        public IHttpActionResult DeleteMessage(Message message, Session session)
+        public IHttpActionResult DeleteMessage([FromBody] JObject request)
         {
-            throw new System.NotImplementedException();
+            return Ok();
         }
     }
 }

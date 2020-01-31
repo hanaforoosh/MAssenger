@@ -24,7 +24,7 @@ namespace MAssenger.Controllers
             {
                 return null;
             }
-            Session session = new Session(user, DateTime.MaxValue, LoginType.MAssenger, "A0-51-0B-BB-B8-3C");
+            Session session = new Session(user.Credential.Username, DateTime.MaxValue, LoginType.MAssenger, "A0-51-0B-BB-B8-3C");
             Repo<Session> sessionRepo = new SessionRepo();
             session =sessionRepo.Create(session);
             return session;
@@ -53,7 +53,7 @@ namespace MAssenger.Controllers
             Session session = null;
             foreach (var el in sessions)
             {
-                if (el.User == user)
+                if (el.Username == user.Credential.Username)
                     session = el;
             }
             if (session == null)
@@ -94,22 +94,22 @@ namespace MAssenger.Controllers
             Repo<User> userRepo = new UserRepo();
             User user = new User(cr);
             userRepo.Create(user);
-            Session session = new Session(user, DateTime.MaxValue, LoginType.MAssenger, "A0-51-0B-BB-B8-3C");
+            Session session = new Session(user.Credential.Username, DateTime.MaxValue, LoginType.MAssenger, "A0-51-0B-BB-B8-3C");
             Repo<Session> sessionRepo = new SessionRepo();
             session = sessionRepo.Create(session);
             return session;
         }
-        public Session SignUp(User ur)
-        {
-            if (Exists(ur.Credential.Username))
-                return null;
-            Repo<User> userRepo = new UserRepo();
-            userRepo.Create(ur);
-            Session session = new Session(ur, DateTime.MaxValue, LoginType.MAssenger, "A0-51-0B-BB-B8-3C");
-            Repo<Session> sessionRepo = new SessionRepo();
-            session = sessionRepo.Create(session);
-            return session;
-        }
+        //public Session SignUp(User ur)
+        //{
+        //    if (Exists(ur.Credential.Username))
+        //        return null;
+        //    Repo<User> userRepo = new UserRepo();
+        //    userRepo.Create(ur);
+        //    Session session = new Session(ur, DateTime.MaxValue, LoginType.MAssenger, "A0-51-0B-BB-B8-3C");
+        //    Repo<Session> sessionRepo = new SessionRepo();
+        //    session = sessionRepo.Create(session);
+        //    return session;
+        //}
 
         private bool Exists(string userName)
         {
@@ -125,6 +125,11 @@ namespace MAssenger.Controllers
             {
                 return false;
             }
+            return true;
+        }
+
+        public bool DeleteAccount(Credential cr)
+        {
             return true;
         }
     }
