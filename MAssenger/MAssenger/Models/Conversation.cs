@@ -12,6 +12,9 @@ namespace MAssenger
     {
         public System.Collections.Generic.ICollection<Account> Members = new List<Account>();
         public ICollection<Message> Messages = new List<Message>();
+
+        public ConversationType conversationType;
+
         public bool Join(Account user)
         {
             Members.Add(user);

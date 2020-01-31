@@ -31,9 +31,12 @@
   <Class Name="MAssenger.Conversation">
     <Position X="6" Y="1.25" Width="3.25" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAgAEAAAAAAAAAEAAAAAAAAEAQCAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAgAEAAIAAAAAAEAAAAAAAAEAQCAAAA=</HashCode>
       <FileName>Models\Conversation.cs</FileName>
     </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Field Name="Messages" />
+    </ShowAsCollectionAssociation>
   </Class>
   <Class Name="MAssenger.Controllers.GoogleAuth" BaseTypeListCollapsed="true">
     <Position X="19.5" Y="14.5" Width="1.5" />
@@ -162,7 +165,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="MAssenger.Models.Message">
-    <Position X="2.25" Y="1.75" Width="3" />
+    <Position X="2" Y="1.75" Width="3" />
     <TypeIdentifier>
       <HashCode>AgAAAAAEAgAEAAAAgAAACAAAAAAIAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Models\Message.cs</FileName>

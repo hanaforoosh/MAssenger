@@ -108,6 +108,9 @@
     <Compile Include="Controllers\MessageController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="DAL\ConversationRepo.cs" />
+    <Compile Include="DAL\DoubleChatRepo.cs" />
+    <Compile Include="Models\ConversationType.cs" />
     <Compile Include="Models\DoubleChat.cs" />
     <Compile Include="Group.cs" />
     <Compile Include="Models\Account.cs" />
