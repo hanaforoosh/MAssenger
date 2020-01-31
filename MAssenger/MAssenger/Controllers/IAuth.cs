@@ -15,6 +15,8 @@ namespace MAssenger.Controllers
         bool Logout(Credential cr);
         bool IsValid(Credential cr);
         bool IsValid(Session session);
+        Session SignUp(Credential cr);
+        Session SignUp(User ur);
     }
 
     public class  GoogleAuth: IAuthentication
@@ -43,6 +45,15 @@ namespace MAssenger.Controllers
         {
             throw new NotImplementedException();
         }
+        public Session SignUp(Credential cr)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Session SignUp(User ur)
+        {
+            throw new NotImplementedException();
+        }
     }
 
     public class FacebookAuth : IAuthentication
@@ -68,6 +79,16 @@ namespace MAssenger.Controllers
         }
 
         bool IAuthentication.IsValid(Session session)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Session SignUp(Credential cr)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Session SignUp(User ur)
         {
             throw new NotImplementedException();
         }

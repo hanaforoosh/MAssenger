@@ -19,13 +19,13 @@ namespace MAssenger.Models
             
             
         }
-        public User(UInt64 id, string username, string password, string phonenumber)
+        public User(Credential cr)
         {
-            Id = id;
-            Credential.Password = password;
-            Credential.Username = username;
-            PhoneNumber = phonenumber;
+            Id = UInt64.MaxValue;
+            Credential.Password = cr.Password;
+            Credential.Username = cr.Username;
         }
+
 
         public bool AddConversation(Conversation c)
         {

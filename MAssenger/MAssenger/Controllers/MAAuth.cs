@@ -25,13 +25,13 @@ namespace MAssenger.Controllers
                 return null;
             }
             Session session = new Session(user, DateTime.MaxValue, LoginType.MAssenger, "A0-51-0B-BB-B8-3C");
-            SessionRepo sessionRepo = new SessionRepo();
+            Repo<Session> sessionRepo = new SessionRepo();
             session =sessionRepo.Create(session);
             return session;
         }
         public bool Logout(Session session)
         {
-            SessionRepo sessionRepo = new SessionRepo();
+            Repo<Session> sessionRepo = new SessionRepo();
             return sessionRepo.Delete(session);
         }
         public bool Logout(Credential cr)
@@ -48,7 +48,7 @@ namespace MAssenger.Controllers
             {
                 return false;
             }
-            SessionRepo sessionRepo = new SessionRepo();
+            Repo<Session> sessionRepo = new SessionRepo();
             ICollection<Session> sessions = sessionRepo.ReadAll();
             Session session = null;
             foreach (var el in sessions)
@@ -81,11 +81,51 @@ namespace MAssenger.Controllers
         }
         public bool IsValid(Session session)
         {
-            SessionRepo sessionRepo = new SessionRepo();
+            Repo<Session> sessionRepo = new SessionRepo();
             Session res =sessionRepo.Read(session);
 
             return (res.Id > 0 );
 
+        }
+        public Session SignUp(Credential cr)
+        {
+            if (Exists(cr.Username))
+                return null;
+            Repo<User> userRepo = new UserRepo();
+            User user = new User(cr);
+            userRepo.Create(user);
+            Session session = new Session(user, DateTime.MaxValue, LoginType.MAssenger, "A0-51-0B-BB-B8-3C");
+            Repo<Session> sessionRepo = new SessionRepo();
+            session = sessionRepo.Create(session);
+            return session;
+        }
+        public Session SignUp(User ur)
+        {
+            if (Exists(ur.Credential.Username))
+                return null;
+            Repo<User> userRepo = new UserRepo();
+            userRepo.Create(ur);
+            Session session = new Session(ur, DateTime.MaxValue, LoginType.MAssenger, "A0-51-0B-BB-B8-3C");
+            Repo<Session> sessionRepo = new SessionRepo();
+            session = sessionRepo.Create(session);
+            return session;
+        }
+
+        private bool Exists(string userName)
+        {
+            Repo<User> ur = new UserRepo();
+            ICollection<User> ulist = ur.ReadAll();
+            User user = null;
+            foreach (var el in ulist)
+            {
+                if (el.Credential.Username == userName)
+                    user = el;
+            }
+            if (user == null)
+            {
+                return false;
+            }
+            return true;
         }
     }
 }

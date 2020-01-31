@@ -137,6 +137,7 @@
   <ItemGroup>
     <Content Include="ClassDiagram1.cd" />
     <Content Include="ClassDiagram2.cd" />
+    <Content Include="ClassDiagram3.cd" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
