@@ -56,7 +56,7 @@ namespace MAssenger.DAL
                 _users.LastSeenStatus = SeenStatus.Online; // dataRow["LastSeenStatus"].ToString();
             }
 
-            dataTable = DBContext.ReadData(" select * from conversation inner join message on `conversation`.`conversation` = message.conversation_id where amodel_id = " + aModel.Id);
+            dataTable = DBContext.ReadData(" select * from conversation inner join message on `conversation`.`conversation` = message.conversation_id where `from` <> amodel_id and amodel_id =  " + aModel.Id);
             List<Message> messages = new List<Message>();
             foreach(DataRow dr in dataTable.Rows)
             {
@@ -108,7 +108,7 @@ namespace MAssenger.DAL
                 _user.Credential.Username = dataRow["username"].ToString();
                 _user.Credential.Password = dataRow["password"].ToString();
 
-                dataTable = DBContext.ReadData(" select * from conversation inner join message on `conversation`.`conversation` = message.conversation_id where amodel_id = " + _user.Id);
+                dataTable = DBContext.ReadData("select * from conversation inner join message on `conversation`.`conversation` = message.conversation_id where `from` <> amodel_id and amodel_id =  " + _user.Id);
                 List<Message> messages = new List<Message>();
                 foreach (DataRow dr in dataTable.Rows)
                 {
