@@ -15,46 +15,44 @@ namespace MAssenger.DAL
 
         public override Account Create(Account entity)
         {
-            DBContext = new DBMySQL();
-           UInt64 id = DBContext.WriteData("insert into `profile` (`user_id` , `firstname` , `lastname` , `avatar` , `lastseen` , `bio`) " +
-                $" values ( {entity.Id}  , '{entity.FirstName}','{entity.LastName}','{entity.Avatar}','{entity.LastSeenStatus}','{entity.Bio}' )");
-            entity.Id = id;
+           DBContext.WriteData("insert into account (`amodel_id` , `avatar` , `bio` , `firstname` , `lastname` , `lastseenstatus` , `username` , `password`)"
+               + $" values({entity.Id} ,'{entity.Avatar}' , '{entity.Bio}' , '{entity.FirstName}' , '{entity.LastName}' , '{entity.LastSeenStatus}' , '{entity.Credential.Username}' , '{entity.Credential.Password}' )");
+            
             return entity;
         }
 
         public override bool Delete(Account entity)
         {
-            DBContext.WriteData($"delete from `profile` where `user_id` = {entity.Id}  and `firstname` = {entity.FirstName} and `lastname` = {entity.LastName} " +
-                $" and `avatar` = {entity.Avatar} and `lastseen` = {entity.LastSeenStatus} and `bio` = {entity.Bio} ");
+            DBContext.WriteData($"delete from `account` where `amodel_id` = {entity.Id} ");
             return true;
         }
 
         public override bool Delete(AModel aModel)
         {
-            DBContext.WriteData($"delete from `profile` where `user_id` = {aModel.Id} ");
+            DBContext.WriteData($"delete from `account` where `amodel_id` = {aModel.Id} ");
             return true;
         }
 
         public override Account Read(AModel aModel)
         {
 
-            DataTable dataTable = DBContext.ReadData("select * from profile where user_id = " + aModel.Id);
-            Account _Account = new Account();
+            DataTable dataTable = DBContext.ReadData("select * from account where amodel_id = " + aModel.Id);
+            Account _account = new Account();
             if (dataTable.Rows.Count > 0)
             {
                 DataRow dataRow = dataTable.Rows[0];
-                _Account.Id = UInt64.Parse(dataRow["user_id"].ToString());
-                _Account.FirstName = dataRow["firstname"].ToString();
-                _Account.LastName = dataRow["lastname"].ToString();
-                _Account.Avatar = null;
-                _Account.LastSeenStatus = SeenStatus.Online;
-                _Account.LastSeen = DateTime.Parse(dataRow["username"].ToString());
-                _Account.Bio = dataRow["bio"].ToString();
+                _account.Id = UInt64.Parse(dataRow["user_id"].ToString());
+                _account.FirstName = dataRow["firstname"].ToString();
+                _account.LastName = dataRow["lastname"].ToString();
+                _account.Avatar = null;
+                _account.LastSeenStatus = SeenStatus.Online;
+                _account.LastSeen = DateTime.Parse(dataRow["username"].ToString());
+                _account.Bio = dataRow["bio"].ToString();
 
             }
 
 
-            return _Account;
+            return _account;
         }
 
         public override ICollection<Account> ReadAll()

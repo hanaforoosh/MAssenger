@@ -16,14 +16,6 @@
   </Class>
   <Class Name="MAssenger.Conversation">
     <Position X="7.75" Y="4.75" Width="2.5" />
-    <InheritanceLine Type="MAssenger.Models.AModel" ManuallyRouted="true">
-      <Path>
-        <Point X="6.5" Y="2.497" />
-        <Point X="6.5" Y="4.239" />
-        <Point X="9" Y="4.239" />
-        <Point X="9" Y="4.75" />
-      </Path>
-    </InheritanceLine>
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAgAEAAAAAAAAAEAAAAAAAAEAQCAAAA=</HashCode>
       <FileName>Models\Conversation.cs</FileName>
@@ -47,17 +39,17 @@
       <FileName>Controllers\MessageController.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="MAssenger.Controllers.ProfilerController" Collapsed="true">
+  <Class Name="MAssenger.Controllers.AccountController" Collapsed="true">
     <Position X="15.5" Y="1.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAYAAAAAAAAAAABAAAAgAAAAAAEAAAAAAgAAAAAAAAA=</HashCode>
-      <FileName>Controllers\ProfilerController.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Controllers\AccountController.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="MAssenger.Controllers.UserController" Collapsed="true">
     <Position X="12" Y="2.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAYAAAAAAAAAAABAAACAAAAAAAEAAAAAAgAAAAAAAAA=</HashCode>
+      <HashCode>AAYAAAAAAAAAAABAEAAAAAAAAAEAAAAAAgAAAAAAAAA=</HashCode>
       <FileName>Controllers\UserController.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -92,7 +84,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="MAssenger.DAL.Repo&lt;T&gt;">
-    <Position X="6.75" Y="13.5" Width="2.5" />
+    <Position X="8" Y="13.5" Width="2.5" />
     <TypeIdentifier>
       <HashCode>AAQAAAEAAAAAAAAAEAAAAAAgAAEAAEAAAAAAAAAAAAA=</HashCode>
       <FileName>DAL\Repo.cs</FileName>
@@ -115,7 +107,7 @@
   <Class Name="MAssenger.Models.Account">
     <Position X="2.5" Y="4.25" Width="3" />
     <TypeIdentifier>
-      <HashCode>AAAAAEAAAAAAAAAAiAQBAAAAAAAAAAAQBAAgQAIAAAg=</HashCode>
+      <HashCode>AAQAAEAAAAAAAAAAmAQBAAAoAAEAAEAQBAAgQAIAAAg=</HashCode>
       <FileName>Models\Account.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -141,7 +133,7 @@
   <Class Name="MAssenger.Models.Credential">
     <Position X="2.5" Y="1" Width="2.25" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAACAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAQAAAAAAAAAAAAACAAAAAAAAAAA=</HashCode>
       <FileName>Models\Credentials.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -178,7 +170,7 @@
   <Class Name="MAssenger.Models.User">
     <Position X="4.25" Y="9.25" Width="3.25" />
     <TypeIdentifier>
-      <HashCode>AAAAAAIAAAAAAAAAgAAAQBAAAAAQAABAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAQAAAIAAAAAAAAAkACAQBAgAAEQAEBAAAAAAAAAAAA=</HashCode>
       <FileName>Models\User.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />

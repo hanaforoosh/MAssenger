@@ -17,7 +17,7 @@ namespace MAssenger.Controllers
             User user = null;
             foreach (var el in ulist)
             {
-                if (el.Username == cr.Username && el.Password == cr.Paswword)
+                if (el.Credential.Username == cr.Username && el.Credential.Password == cr.Password)
                     user = el;
             }
             if (user == null)
@@ -41,7 +41,7 @@ namespace MAssenger.Controllers
             User user = null;
             foreach (var el in ulist)
             {
-                if (el.Username == cr.Username && el.Password == cr.Paswword)
+                if (el.Credential.Username == cr.Username && el.Credential.Password == cr.Password)
                     user = el;
             }
             if (user == null)
@@ -70,7 +70,7 @@ namespace MAssenger.Controllers
             User user = null;
             foreach (var el in ulist)
             {
-                if (el.Username == cr.Username && el.Password == cr.Paswword)
+                if (el.Credential.Username == cr.Username && el.Credential.Password == cr.Password)
                     user = el;
             }
             if (user == null)
