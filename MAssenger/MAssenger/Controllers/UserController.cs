@@ -15,12 +15,9 @@ namespace MAssenger.Controllers
         private Repo<User> userRepo = new UserRepo();
 
         [HttpGet]
-        public IHttpActionResult Get(UInt64 id)
+        public IHttpActionResult Get([FromUri] AModel aMolde)
         {
-            //set the parameters
-            AModel aModel = new User();
-            aModel.Id = id;
-            User user = userRepo.Read(aModel);
+            User user = userRepo.Read(aMolde);
             return Ok(user);
         }
 

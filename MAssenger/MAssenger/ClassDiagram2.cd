@@ -66,13 +66,6 @@
       <FileName>Controllers\MessageController.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="MAssenger.Controllers.ProfilerController">
-    <Position X="22" Y="3.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAYAAAAAAAAAAABAAAAgAAAAAAEAAAAAAgAAAAAAAAA=</HashCode>
-      <FileName>Controllers\ProfilerController.cs</FileName>
-    </TypeIdentifier>
-  </Class>
   <Class Name="MAssenger.Controllers.UserController">
     <Position X="23.75" Y="3.5" Width="1.5" />
     <TypeIdentifier>
@@ -135,7 +128,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="MAssenger.Models.Account">
-    <Position X="12.75" Y="1.75" Width="1.5" />
+    <Position X="12.75" Y="2.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAEAAAAAAAAAAiAQBAAAIAAAAAAAQBAAAQAIAAAg=</HashCode>
       <FileName>Models\Account.cs</FileName>

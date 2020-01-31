@@ -5,7 +5,7 @@ using System.Web;
 
 namespace MAssenger.Models
 {
-    public abstract class AModel 
+    public  class AModel 
     {
         public UInt64 Id { get; set; }
         public AModel(UInt64 id)
