@@ -25,6 +25,7 @@ namespace MAssenger.Controllers
 
             Conversation conversation =conversationRepo.Read(to);
             conversation.NewMessage(message);
+            conversationRepo.Update(conversation);
             var members = conversation.Members;
             foreach (var mem in members)
             {
