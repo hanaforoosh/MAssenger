@@ -81,12 +81,18 @@ namespace MAssenger.Controllers
         [HttpPut]
         public IHttpActionResult EditMessage([FromBody] JObject request)
         {
+            Message msg = request.ToObject<Message>();
+            Repo<Message> messageRepo = new MessageRepo();
+            messageRepo.Update(msg);
             return Ok();
         }
 
         [HttpDelete]
         public IHttpActionResult DeleteMessage([FromBody] JObject request)
         {
+            Message msg = request.ToObject<Message>();
+            Repo<Message> messageRepo = new MessageRepo();
+            messageRepo.Delete(msg);
             return Ok();
         }
     }
