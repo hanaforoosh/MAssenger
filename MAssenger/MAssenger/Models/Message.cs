@@ -9,46 +9,18 @@ namespace MAssenger.Models
     {
         public AModel From { get; set; }
         public AModel To { get; set; }
-        Message()
-        {   
-        }
+
+        public string Content { get; set; }        
+
+        public DateTime SentDateTime { get; set; }
+
+        public DateTime ReceivedTime { get; set; }
         
-        
+        public MessageStatus Status { get; set; }
 
-
-
-        public string Content
+        public Message()
         {
-            get => default;
-            set
-            {
-            }
         }
-
-        public DateTime SentDateTime
-        {
-            get => default;
-            set
-            {
-            }
-        }
-
-        public DateTime ReceivedTime
-        {
-            get => default;
-            set
-            {
-            }
-        }
-
-        public MessageStatus Status
-        {
-            get => default;
-            set
-            {
-            }
-        }
-
 
         public bool Equals(Message other)
         {

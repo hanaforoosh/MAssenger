@@ -1,4 +1,6 @@
-﻿using Newtonsoft.Json.Linq;
+﻿using MAssenger.DAL;
+using MAssenger.Models;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,5 +30,24 @@ namespace MAssenger.Controllers
             return Ok();
         }
 
+
+        //public ICollection<Conversation> GetConversationByAmodel_id(AModel aModel)
+        //{
+            
+        //    List<Conversation> SelectedConversations = new List<Conversation>();
+        //    Repo <Conversation> conversationRepo = new ConversationRepo();
+        //    ICollection<Conversation> AllConversations = conversationRepo.ReadAll();
+        //    foreach(Conversation co in AllConversations)
+        //    {
+        //        foreach(Account ac in co.Members)
+        //        {
+        //            if(ac.Id == aModel.Id)
+        //            {
+        //                SelectedConversations.Add(co);
+        //            }
+        //        }
+        //    }
+        //    return SelectedConversations;
+        //}
     }
 }
