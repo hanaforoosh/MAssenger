@@ -46,7 +46,7 @@ namespace MAssenger.Controllers
         }
 
 
-        //These codes is kept for test purposes
+        //These codes are kept for test purposes
         [HttpGet]
         public IHttpActionResult GetAll()
         {
