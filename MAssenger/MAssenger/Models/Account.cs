@@ -7,7 +7,6 @@ namespace MAssenger.Models
 {
     public class Account : AModel, IEquatable<Account>
     {
-        private AccountRepo accountRepo = new AccountRepo();
         public ICollection<Message> Inbox { get; set; }
 
         public Credential Credential { get; set; }
