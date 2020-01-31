@@ -118,6 +118,7 @@
     <Compile Include="DAL\ChannelRepo.cs" />
     <Compile Include="DAL\ConversationRepo.cs" />
     <Compile Include="DAL\DoubleChatRepo.cs" />
+    <Compile Include="DAL\GroupRepo.cs" />
     <Compile Include="Models\Channel.cs" />
     <Compile Include="Models\ConversationType.cs" />
     <Compile Include="Models\DoubleChat.cs" />
