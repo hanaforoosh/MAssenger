@@ -12,7 +12,7 @@ namespace MAssenger.Models
         {
             Id = id;
         }
-        public AModel()
+        public  AModel()
         {
 
         }
