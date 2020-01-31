@@ -8,7 +8,7 @@ using System.Collections.Generic;
 
 namespace MAssenger
 {
-    public class Group : Conversation
+    public class Group : Conversation, IEquatable<Group>
     {
         public Account Admin
         {
@@ -25,9 +25,13 @@ namespace MAssenger
             {
             }
         }
+        public bool Equals(Group other)
+        {
+            return this.Id == other.Id;
+        }
     }
 
-    public class Channel : Conversation
+    public class Channel : Conversation, IEquatable<Channel>
     {
         private System.Collections.Generic.ICollection<Account> Authors = new List<Account>();
 
@@ -35,6 +39,10 @@ namespace MAssenger
         {
             Messages.Add(m);
             return true;
+        }
+        public bool Equals(Channel other)
+        {
+            return this.Id == other.Id;
         }
     }
 }

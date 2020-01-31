@@ -14,29 +14,29 @@ namespace MAssenger.Controllers
     {
         public IHttpActionResult SendMessage([FromBody] JObject request)
         {
-            Repo<Conversation> conversationRepo = new ConversationRepo();
-            Repo<User> userRepo = new UserRepo();
-            IPushNotifier notifier = new PNotifier();
+            //Repo<Conversation> conversationRepo = new ConversationRepo();
+            //Repo<User> userRepo = new UserRepo();
+            //IPushNotifier notifier = new PNotifier();
 
-            Message message = request.ToObject<Message>();
-            var to = message.To;
-            var from = message.From;
-            message.Status = MessageStatus.Sent;
+            //Message message = request.ToObject<Message>();
+            //var to = message.To;
+            //var from = message.From;
+            //message.Status = MessageStatus.Sent;
 
-            Conversation conversation =conversationRepo.Read(to);
-            conversation.NewMessage(message);
-            conversationRepo.Update(conversation);
-            var members = conversation.Members;
-            foreach (var mem in members)
-            {
-                if (mem.Id != from.Id)
-                {
-                    User user = userRepo.Read(mem);
-                    user.AddMessageToInbox(message);
-                    userRepo.Update(user);
-                    notifier.notify(message);
-                }
-            }
+            //Conversation conversation =conversationRepo.Read(to);
+            //conversation.NewMessage(message);
+            //conversationRepo.Update(conversation);
+            //var members = conversation.Members;
+            //foreach (var mem in members)
+            //{
+            //    if (mem.Id != from.Id)
+            //    {
+            //        User user = userRepo.Read(mem);
+            //        user.AddMessageToInbox(message);
+            //        userRepo.Update(user);
+            //        notifier.notify(message);
+            //    }
+            //}
 
             return Ok();
         }

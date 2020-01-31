@@ -8,8 +8,12 @@ using MAssenger.Models;
 
 namespace MAssenger
 {
-    public class DoubleChat : Conversation
+    public class DoubleChat : Conversation, IEquatable<DoubleChat>
     {
         public ICollection<Message> StarMessages = new List<Message>();
+        public bool Equals(DoubleChat other)
+        {
+            return this.Id == other.Id;
+        }
     }
 }

@@ -9,7 +9,6 @@ namespace MAssenger.Models
     public class User : Account, IEquatable<User>
     {
         private ICollection<Conversation> Conversations = new List<Conversation>();
-        private readonly Repo<User> userRepo = new UserRepo();
 
         public string PhoneNumber { get; set; }
         
@@ -52,7 +51,6 @@ namespace MAssenger.Models
         public bool Equals(User other)
         {
             return true; // Id = other.Id && other.
-
         }
     }
 }

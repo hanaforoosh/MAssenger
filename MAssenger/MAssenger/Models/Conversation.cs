@@ -8,7 +8,7 @@ using MAssenger.Models;
 
 namespace MAssenger
 {
-    public class Conversation : AModel
+    public class Conversation : AModel, IEquatable<Conversation>
     {
         public System.Collections.Generic.ICollection<Account> Members = new List<Account>();
         public ICollection<Message> Messages = new List<Message>();
@@ -45,6 +45,10 @@ namespace MAssenger
             {
                 return false;
             }
+        }
+        public bool Equals(Conversation other)
+        {
+            return this.Id == other.Id;
         }
     }
 }
