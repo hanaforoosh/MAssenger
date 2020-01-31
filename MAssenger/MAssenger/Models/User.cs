@@ -36,21 +36,12 @@ namespace MAssenger.Models
         {
             return Conversations;
         }
-        public bool AddMessageToInbox(Message c)
-        {
-            Inbox.Add(c);
-            return true;
-        }
-        public bool RemoveMessageFromInbox(Message c)
-        {
-            Inbox.Remove(c);
-            return true;
-        }
+
 
 
         public bool Equals(User other)
         {
-            return true; // Id = other.Id && other.
+            return this.Id == other.Id;
         }
     }
 }

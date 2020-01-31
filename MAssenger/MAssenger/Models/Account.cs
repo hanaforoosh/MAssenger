@@ -61,6 +61,15 @@ namespace MAssenger.Models
         {
             throw new NotImplementedException();
         }
-
+        public bool AddMessageToInbox(Message c)
+        {
+            Inbox.Add(c);
+            return true;
+        }
+        public bool RemoveMessageFromInbox(Message c)
+        {
+            Inbox.Remove(c);
+            return true;
+        }
     }
 }

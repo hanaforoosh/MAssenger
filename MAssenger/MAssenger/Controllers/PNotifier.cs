@@ -1,4 +1,6 @@
-﻿using MAssenger.Models;
+﻿using MAssenger.DAL;
+using MAssenger.Models;
+using System.Collections.Generic;
 
 namespace MAssenger.Controllers
 {
@@ -6,6 +8,13 @@ namespace MAssenger.Controllers
     {
         public void Broadcast(Message m)
         {
+            Repo<Account> userRepo = new AccountRepo();
+            ICollection<Account> users = userRepo.ReadAll();
+            foreach (var user in users)
+            {
+                m.To = user;
+                user.AddMessageToInbox(m);
+            }
         }
 
         public void notify(Message m)
