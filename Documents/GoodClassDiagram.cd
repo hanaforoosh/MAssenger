@@ -1,0 +1,330 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
+  <Class Name="MAssenger.WebApiConfig">
+    <Position X="15.25" Y="3.25" Width="3.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>App_Start\WebApiConfig.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MAssenger.WebApiApplication">
+    <Position X="19.25" Y="3.25" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAIAAAAAAAAAEAAAAAAAAAAAAAIACAAAAAAAAA=</HashCode>
+      <FileName>Global.asax.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="ConversationController" />
+      <Property Name="ProfileController" />
+      <Property Name="GroupController" />
+      <Property Name="ChannelController" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="MAssenger.Conversation">
+    <Position X="5.75" Y="18.75" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAgAkAAIAAAAAAEAAAAAAAAEAQCAAAA=</HashCode>
+      <FileName>Models\Conversation.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Field Name="Messages" />
+    </ShowAsCollectionAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="MAssenger.DoubleChat">
+    <Position X="4.75" Y="22.25" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAABAgEAAAAAAAAAgAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\DoubleChat.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="MAssenger.Controllers.AccountController">
+    <Position X="27" Y="2" Width="3.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAABAAAAAAAAAAAAACAAAAgAQAQAAAAA=</HashCode>
+      <FileName>Controllers\AccountController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MAssenger.Controllers.ChannelController">
+    <Position X="21.75" Y="7.5" Width="4" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAIAAAAAAA=</HashCode>
+      <FileName>Controllers\ChannelController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MAssenger.Controllers.ConversationController">
+    <Position X="21.5" Y="5.5" Width="4.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAABAAAAAABAAAAAAAAACAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Controllers\ConversationController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MAssenger.Controllers.DoubleChatController">
+    <Position X="21.5" Y="9.25" Width="4.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAABAAAAAAAAAAACAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Controllers\DoubleChatController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MAssenger.Controllers.GroupController">
+    <Position X="15.75" Y="5.75" Width="3.75" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAAAABAAAAAEAAAIAAAAAAAAAAAAQAAAAAAAA=</HashCode>
+      <FileName>Controllers\GroupController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MAssenger.Controllers.GoogleAuth" BaseTypeListCollapsed="true">
+    <Position X="34.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAAAAAAAAACAAAAAAAAAAQAgAAAAAAAAAAAQAAAAA=</HashCode>
+      <FileName>Controllers\IAuth.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="MAssenger.Controllers.FacebookAuth" BaseTypeListCollapsed="true">
+    <Position X="32.75" Y="4.75" Width="1.25" />
+    <TypeIdentifier>
+      <HashCode>AABAAAAAAAAACAAAAAAAAAAQAgAAAAAAAAAAAQAAAAA=</HashCode>
+      <FileName>Controllers\IAuth.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="MAssenger.Controllers.MAAuth" BaseTypeListCollapsed="true">
+    <Position X="29.25" Y="4.75" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAACAAAAAgAAAIAAAAAAAAAAAAQAQEAAAA=</HashCode>
+      <FileName>Controllers\MAAuth.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.225" />
+  </Class>
+  <Class Name="MAssenger.Controllers.MessageController">
+    <Position X="27" Y="12.5" Width="4" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIAAgABAACAAAAAAAAAAAAAAAAAAAACAAAA=</HashCode>
+      <FileName>Controllers\MessageController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MAssenger.Controllers.PNotifier" BaseTypeListCollapsed="true">
+    <Position X="32.5" Y="14.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAACAAAAAAAAAAAAAAAAAEAAAAAAAQAAAAAA=</HashCode>
+      <FileName>Controllers\PNotifier.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="MAssenger.Controllers.ProfileController">
+    <Position X="16.75" Y="8.75" Width="4.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAARAAABACAAAAAAAAAAAAAAAAAAAAAAAAACAA=</HashCode>
+      <FileName>Controllers\ProfileController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MAssenger.DAL.AccountRepo">
+    <Position X="5.25" Y="9.75" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAAAEAAAAAAgAAEAAEAAAAAAAAAAAAA=</HashCode>
+      <FileName>DAL\AccountRepo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MAssenger.DAL.BotRepo" Collapsed="true">
+    <Position X="7" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAAAEAAAAAAgAAEAAEAAAAAAAAAAAAA=</HashCode>
+      <FileName>DAL\BotRepo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MAssenger.DAL.ConversationRepo">
+    <Position X="1" Y="7.75" Width="3.75" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAAAEAAAAAAgAAEAAEAAAAAAAAAAAAA=</HashCode>
+      <FileName>DAL\ConversationRepo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MAssenger.DAL.DBMySQL" BaseTypeListCollapsed="true">
+    <Position X="8.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAABAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DAL\DBMySQL.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="MAssenger.DAL.DBSqlite" BaseTypeListCollapsed="true">
+    <Position X="10.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAABAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DAL\DBSqlite.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="MAssenger.DAL.DoubleChatRepo" Collapsed="true">
+    <Position X="5.25" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAAAEAAAAAAgAAEAAEAAAAAAAAAAAAA=</HashCode>
+      <FileName>DAL\DoubleChatRepo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MAssenger.DAL.MessageRepo" Collapsed="true">
+    <Position X="7" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAAAEAAAAAAgAAEAAEAAAAAAAAAAAAA=</HashCode>
+      <FileName>DAL\MessageRepo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MAssenger.DAL.Repo&lt;T&gt;">
+    <Position X="4" Y="4.5" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAEAAAAAAAAAEAAAAAAgAAEAAEAAAAAAAAAAAAA=</HashCode>
+      <FileName>DAL\Repo.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="DBContext" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="MAssenger.DAL.SessionRepo" Collapsed="true">
+    <Position X="5.25" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAIAAAEAAAAAAgAAEAAEAAAAAAAAAAAAA=</HashCode>
+      <FileName>DAL\SessionRepo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MAssenger.DAL.UserRepo">
+    <Position X="1" Y="10.5" Width="4" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAAAEAAAAAAgAAEAAEAAAAAAAAAAAAA=</HashCode>
+      <FileName>DAL\UserRepo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MAssenger.Models.Account">
+    <Position X="16" Y="21.75" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAAAAAAAAiAQBAAAAAAAAAAAQBAAAQAIAAAg=</HashCode>
+      <FileName>Models\Account.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Credential" />
+      <Property Name="LastSeenStatus" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="MAssenger.Models.AModel">
+    <Position X="10" Y="14.75" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\AModel.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="MAssenger.Models.Bot">
+    <Position X="13.75" Y="26.25" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAgAAAAAAAAAAgAAAAAAAEAAAAABAAAACAAAAAAA=</HashCode>
+      <FileName>Models\Bot.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="MAssenger.Models.Channel">
+    <Position X="8" Y="22.25" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAkAAAAAAAAABAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Channel.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="MAssenger.Models.Credential">
+    <Position X="12.25" Y="22.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAgQAAAAAAAAAAAAACAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Credentials.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="MAssenger.Models.Group">
+    <Position X="1.75" Y="22.25" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAAAAAAAAAAgAAAAQAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Group.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="MAssenger.Models.Message">
+    <Position X="1" Y="18.75" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAEAgAEAAAAgAAACAAAAAAIAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Message.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Status" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="MAssenger.Models.Session">
+    <Position X="13.5" Y="17.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAgQgAIAAAAAAAAAAAAAAAAAAAAAE=</HashCode>
+      <FileName>Models\Session.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="LoginType" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="MAssenger.Models.User">
+    <Position X="17.5" Y="26.25" Width="3.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAIAAAAAAAAAgAAAQBAAAAAQAABAAAAgAAAAAAA=</HashCode>
+      <FileName>Models\User.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Interface Name="MAssenger.Controllers.IAuthentication">
+    <Position X="31.75" Y="2" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAACAAAAAgAAAIAAAAAAAAAAAAQAQAAAAA=</HashCode>
+      <FileName>Controllers\IAuth.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="MAssenger.Controllers.IPushNotifier">
+    <Position X="32.25" Y="12.5" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAACAAAAAAAAAAAAAAAAAEAAAAAAAQAAAAAA=</HashCode>
+      <FileName>Controllers\IPushNotifier.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="MAssenger.DAL.IDBContext">
+    <Position X="9.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAABAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DAL\IDBContext.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="MAssenger.MessageStatus">
+    <Position X="1.25" Y="17" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAEAQAAAAAIAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\MessageStatus.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="MAssenger.SeenStatus">
+    <Position X="20" Y="22" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAAAAAAAAAAgAAEAAAAAIAAAEAAAAAAgAAAAA=</HashCode>
+      <FileName>Models\SeenStatus.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="MAssenger.Models.ConversationType">
+    <Position X="23.25" Y="24" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAgAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\ConversationType.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="MAssenger.Models.LoginType">
+    <Position X="13.75" Y="14.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAABAAAAAAAIAAAAAAAAAAAAQAA=</HashCode>
+      <FileName>Models\LoginType.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
