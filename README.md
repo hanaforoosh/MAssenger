@@ -1,2 +1,2 @@
-# FinalSSA
-This is our last try. GOD PLEASE!!!
+# MAssenger
+a Messenger as a Service application.
