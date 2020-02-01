@@ -1,0 +1,163 @@
+{
+	"info": {
+		"_postman_id": "46d2cafa-50b5-4d8d-bb7f-9ed66dd2d513",
+		"name": "Test APIs",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Signup",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"Username\":\"Mahrad\",\n\t\"Password\":\"mahrad4359\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:44324/api/account/SignUp",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44324",
+					"path": [
+						"api",
+						"account",
+						"SignUp"
+					]
+				},
+				"description": "SignUp and Get Session\n"
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"Username\":\"Mahrad\",\n\t\"Password\":\"123\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:44324/api/account/Login/",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44324",
+					"path": [
+						"api",
+						"account",
+						"Login",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SendMessage",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\nFrom:\n\t{\n\t\t\"Id\":20\n\t},\nTo:\n\t{\n\t\t\"Id\":19\n\t},\nContent:\"Hello Abbas Again! this day\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:44324/api/message/SendMessage",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44324",
+					"path": [
+						"api",
+						"message",
+						"SendMessage"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetNewMessages",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\n\t\"id\":20\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:44324/api/message/GetNewMessages",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44324",
+					"path": [
+						"api",
+						"message",
+						"GetNewMessages"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
